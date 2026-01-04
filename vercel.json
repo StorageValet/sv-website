@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "name": "storage-valet-website",
+  "builds": [
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.png",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.ico",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "headers": {
+        "Cache-Control": "public, max-age=0, must-revalidate"
+      }
+    }
+  ],
+  "trailingSlash": false
+}
