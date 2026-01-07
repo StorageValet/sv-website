@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Storage Valet - Ready when you are">
+    <title>No Worries | Storage Valet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <style>
+        .canceled-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            background: linear-gradient(180deg, #fdfcf9 0%, #f5f3ef 100%);
+        }
+        .canceled-card {
+            max-width: 520px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 48px 40px;
+            box-shadow: 0 4px 24px rgba(15, 41, 66, 0.08);
+            text-align: center;
+        }
+        .canceled-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #f5f3ef 0%, #e8e4de 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+        }
+        .canceled-icon svg {
+            width: 40px;
+            height: 40px;
+            stroke: rgba(15, 41, 66, 0.5);
+        }
+        .canceled-card h1 {
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #0f2942;
+            margin: 0 0 16px;
+        }
+        .canceled-card p {
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(15, 41, 66, 0.7);
+            margin: 0 0 32px;
+        }
+        .canceled-benefits {
+            background: #f5f3ef;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+            text-align: left;
+        }
+        .canceled-benefits h3 {
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #0f2942;
+            margin: 0 0 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .canceled-benefit {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .canceled-benefit:last-child {
+            margin-bottom: 0;
+        }
+        .canceled-benefit svg {
+            width: 20px;
+            height: 20px;
+            stroke: #D97757;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .canceled-benefit-text {
+            font-size: 14px;
+            color: rgba(15, 41, 66, 0.8);
+            line-height: 1.5;
+        }
+        .btn-tryagain {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 16px 32px;
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #fdfcf9;
+            background: #D97757;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        .btn-tryagain:hover {
+            background: #c4614a;
+        }
+        .btn-tryagain svg {
+            width: 20px;
+            height: 20px;
+        }
+        .canceled-footer {
+            margin-top: 24px;
+            font-size: 14px;
+            color: rgba(15, 41, 66, 0.5);
+        }
+        .canceled-footer a {
+            color: #D97757;
+            text-decoration: none;
+        }
+        .canceled-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="canceled-page">
+        <div class="canceled-card">
+            <div class="canceled-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M8 12h8"/>
+                </svg>
+            </div>
+            <h1>No worries!</h1>
+            <p>Your signup wasn't completed, but we saved your spot. When you're ready to reclaim your space, we'll be here.</p>
+
+            <div class="canceled-benefits">
+                <h3>Why Storage Valet?</h3>
+                <div class="canceled-benefit">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    <span class="canceled-benefit-text">White-glove pickup from your door</span>
+                </div>
+                <div class="canceled-benefit">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    <span class="canceled-benefit-text">Secure, climate-monitored storage</span>
+                </div>
+                <div class="canceled-benefit">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    <span class="canceled-benefit-text">$3,000 included insurance coverage</span>
+                </div>
+                <div class="canceled-benefit">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    <span class="canceled-benefit-text">Cancel anytime, no commitment</span>
+                </div>
+            </div>
+
+            <a href="/#signup" class="btn-tryagain">
+                Try Again
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+
+            <div class="canceled-footer">
+                <p><a href="/">Back to Storage Valet home</a></p>
+                <p>Questions? <a href="mailto:hello@mystoragevalet.com">Contact us</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

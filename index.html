@@ -463,7 +463,9 @@
                 <h2>Claim your free pickup!</h2>
                 <p>Save time, reclaim space—book your pickup in under a minute.</p>
             </div>
-            <form class="signup-form" action="#" method="POST">
+            <form class="signup-form" id="signup-form" action="#" method="POST">
+                <!-- Error/Success message container -->
+                <div id="form-message" class="form-message" style="display: none;"></div>
                 <div class="form-row">
                     <div class="form-group">
                         <label class="form-label">First Name <span class="required">*</span></label>
@@ -639,6 +641,148 @@
                     }
                 }
             });
+        });
+
+        // ============================================
+        // SIGNUP FORM SUBMISSION
+        // ============================================
+        const SIGNUP_WEBHOOK_URL = 'https://gmjucacmbrumncfnnhua.supabase.co/functions/v1/framer-signup-webhook';
+        const CHECKOUT_URL = 'https://gmjucacmbrumncfnnhua.supabase.co/functions/v1/create-checkout';
+
+        const signupForm = document.getElementById('signup-form');
+        const formMessage = document.getElementById('form-message');
+        const submitButton = signupForm.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.textContent;
+
+        // Show message (error or success/waitlist)
+        function showMessage(message, isError = false) {
+            formMessage.textContent = message;
+            formMessage.style.display = 'block';
+            formMessage.style.padding = '16px';
+            formMessage.style.borderRadius = '8px';
+            formMessage.style.marginBottom = '16px';
+            formMessage.style.fontSize = '14px';
+            formMessage.style.textAlign = 'center';
+
+            if (isError) {
+                formMessage.style.backgroundColor = '#fef2f2';
+                formMessage.style.border = '1px solid #fecaca';
+                formMessage.style.color = '#dc2626';
+            } else {
+                // Waitlist/success style
+                formMessage.style.backgroundColor = '#f0f9ff';
+                formMessage.style.border = '1px solid #bae6fd';
+                formMessage.style.color = '#0369a1';
+            }
+        }
+
+        // Hide message
+        function hideMessage() {
+            formMessage.style.display = 'none';
+        }
+
+        // Set loading state
+        function setLoading(isLoading) {
+            submitButton.disabled = isLoading;
+            submitButton.textContent = isLoading ? 'Processing...' : originalButtonText;
+            submitButton.style.opacity = isLoading ? '0.6' : '1';
+            submitButton.style.cursor = isLoading ? 'not-allowed' : 'pointer';
+        }
+
+        // Format phone to digits only
+        function formatPhoneDigits(phone) {
+            return phone.replace(/\D/g, '');
+        }
+
+        // Format ZIP to 5 digits
+        function formatZip(zip) {
+            return zip.replace(/\D/g, '').slice(0, 5);
+        }
+
+        // Get referral source value (handle "Other" case)
+        function getReferralSource(selectValue) {
+            if (!selectValue) return undefined;
+            // For now, just return the value as-is
+            // If "other" is selected and we want to capture detail, we'd need an additional input
+            return selectValue || undefined;
+        }
+
+        // Handle form submission
+        signupForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            hideMessage();
+            setLoading(true);
+
+            try {
+                // Get form data
+                const formData = new FormData(signupForm);
+
+                // Map form fields to webhook expected format (snake_case)
+                const payload = {
+                    first_name: (formData.get('firstName') || '').trim(),
+                    last_name: (formData.get('lastName') || '').trim(),
+                    email: (formData.get('email') || '').trim().toLowerCase(),
+                    phone: formatPhoneDigits(formData.get('phone') || ''),
+                    street_address: (formData.get('street') || '').trim(),
+                    unit: (formData.get('unit') || '').trim() || undefined,
+                    city: (formData.get('city') || '').trim(),
+                    state: (formData.get('state') || 'NJ').trim(),
+                    zip_code: formatZip(formData.get('zip') || ''),
+                    referral_source: getReferralSource(formData.get('referral'))
+                };
+
+                // Remove undefined values
+                Object.keys(payload).forEach(key => {
+                    if (payload[key] === undefined) delete payload[key];
+                });
+
+                // Step 1: Submit to framer-signup-webhook
+                const signupResponse = await fetch(SIGNUP_WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const signupData = await signupResponse.json();
+
+                // Handle signup errors
+                if (!signupResponse.ok || !signupData.success) {
+                    throw new Error(signupData.error || 'Registration failed. Please try again.');
+                }
+
+                // Step 2: Check service area
+                if (signupData.service_area_match === true) {
+                    // In service area → proceed to Stripe checkout
+                    const checkoutResponse = await fetch(CHECKOUT_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email: payload.email })
+                    });
+
+                    const checkoutData = await checkoutResponse.json();
+
+                    if (!checkoutResponse.ok || !checkoutData.url) {
+                        throw new Error(checkoutData.error || 'Failed to create checkout session.');
+                    }
+
+                    // Redirect to Stripe Checkout
+                    window.location.href = checkoutData.url;
+                } else {
+                    // Out of service area → show waitlist message
+                    setLoading(false);
+                    const waitlistMessage = signupData.message ||
+                        "We're not in your area yet, but we've added you to our waitlist. We'll notify you when we expand to your neighborhood!";
+                    showMessage(waitlistMessage, false);
+
+                    // Hide the form fields and show only the message
+                    const formContent = signupForm.querySelectorAll('.form-row, .form-group, .form-submit, .form-footer');
+                    formContent.forEach(el => el.style.display = 'none');
+                }
+
+            } catch (err) {
+                setLoading(false);
+                showMessage(err.message || 'An unexpected error occurred. Please try again.', true);
+            }
         });
     </script>
 </body>

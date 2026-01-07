@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to Storage Valet - Your account is ready!">
+    <title>You're All Set! | Storage Valet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <style>
+        .success-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            background: linear-gradient(180deg, #fdfcf9 0%, #f5f3ef 100%);
+        }
+        .success-card {
+            max-width: 520px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 48px 40px;
+            box-shadow: 0 4px 24px rgba(15, 41, 66, 0.08);
+            text-align: center;
+        }
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #D97757 0%, #c4614a 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+        }
+        .success-icon svg {
+            width: 40px;
+            height: 40px;
+            stroke: #fdfcf9;
+        }
+        .success-card h1 {
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #0f2942;
+            margin: 0 0 16px;
+        }
+        .success-card p {
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(15, 41, 66, 0.7);
+            margin: 0 0 32px;
+        }
+        .success-card .highlight {
+            color: #0f2942;
+            font-weight: 600;
+        }
+        .success-steps {
+            background: #f5f3ef;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+            text-align: left;
+        }
+        .success-steps h3 {
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #0f2942;
+            margin: 0 0 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .success-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .success-step:last-child {
+            margin-bottom: 0;
+        }
+        .success-step-num {
+            width: 24px;
+            height: 24px;
+            background: #D97757;
+            color: #fdfcf9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        .success-step-text {
+            font-size: 14px;
+            color: rgba(15, 41, 66, 0.8);
+            line-height: 1.5;
+        }
+        .btn-portal {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 16px 32px;
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #fdfcf9;
+            background: #D97757;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        .btn-portal:hover {
+            background: #c4614a;
+        }
+        .btn-portal svg {
+            width: 20px;
+            height: 20px;
+        }
+        .success-footer {
+            margin-top: 24px;
+            font-size: 14px;
+            color: rgba(15, 41, 66, 0.5);
+        }
+        .success-footer a {
+            color: #D97757;
+            text-decoration: none;
+        }
+        .success-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-page">
+        <div class="success-card">
+            <div class="success-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+            </div>
+            <h1>You're all set!</h1>
+            <p>Welcome to Storage Valet! You'll receive a <span class="highlight">magic link</span> in your email. Click it to access your portal and schedule your first pickup.</p>
+
+            <div class="success-steps">
+                <h3>What's Next</h3>
+                <div class="success-step">
+                    <span class="success-step-num">1</span>
+                    <span class="success-step-text">Check your email for the magic link (check spam if needed)</span>
+                </div>
+                <div class="success-step">
+                    <span class="success-step-num">2</span>
+                    <span class="success-step-text">Click the link to sign in to your portal</span>
+                </div>
+                <div class="success-step">
+                    <span class="success-step-num">3</span>
+                    <span class="success-step-text">Add your items and schedule your free pickup!</span>
+                </div>
+            </div>
+
+            <a href="https://portal.mystoragevalet.com" class="btn-portal">
+                Go to Portal
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+
+            <div class="success-footer">
+                <p><a href="/">Back to Storage Valet home</a></p>
+                <p>Questions? <a href="mailto:hello@mystoragevalet.com">Contact us</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
