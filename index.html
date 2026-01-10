@@ -43,6 +43,29 @@
         </div>
     </header>
 
+    <!-- MOBILE NAV DRAWER -->
+    <div class="mobile-nav" id="mobile-nav">
+        <div class="mobile-nav-header">
+            <span class="logo-text">Storage Valet</span>
+            <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <nav class="mobile-nav-links">
+            <a href="#how-it-works">How It Works</a>
+            <a href="#pricing">Pricing</a>
+            <a href="testimonials.html">Testimonials</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+        <div class="mobile-nav-cta">
+            <a href="https://portal.mystoragevalet.com" class="btn btn-outline">Portal Login</a>
+            <a href="#signup" class="btn btn-primary">Get Started</a>
+        </div>
+    </div>
+    <div class="mobile-nav-backdrop" id="mobile-nav-backdrop"></div>
+
     <!-- HERO -->
     <section class="hero">
         <div class="container">
@@ -52,8 +75,8 @@
                         <span class="hero-badge-dot"></span>
                         Now serving Hoboken • Jersey City • Weehawken
                     </div>
-                    <h1>Storage that comes to you.</h1>
-                    <p class="hero-subtitle">White-glove pickup, secure storage, and easy returns—built for life just across the river, where space is limited and time matters.</p>
+                    <h1>Storage that<br>comes to you.</h1>
+                    <p class="hero-subtitle">We pick up, store securely, and deliver to your door—so you never visit a storage facility again.</p>
                     <div class="hero-buttons">
                         <a href="#signup" class="btn btn-primary">
                             Get Started
@@ -157,12 +180,6 @@
                                 <span>Tomorrow, 2-4 PM</span>
                             </div>
                         </div>
-                        <div class="float-card float-card-2">
-                            <div class="float-card-stat">
-                                <div class="number">48hr</div>
-                                <span>Delivery guarantee</span>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -172,12 +189,12 @@
     <!-- MEMBERSHIP / PRICING -->
     <section class="section bg-white" id="pricing">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-label">Membership</span>
                 <h2>One membership. Everything handled.</h2>
                 <p>$299/month. Month-to-month.</p>
             </div>
-            <div class="pricing-card">
+            <div class="pricing-card reveal">
                 <p class="pricing-subtitle" style="margin-bottom: 24px; color: var(--text-secondary); font-size: 0.95rem;">A complimentary introductory period is currently available and applied at checkout.</p>
                 <div class="pricing-features">
                     <div class="pricing-feature">
@@ -222,23 +239,23 @@
     <!-- HOW IT WORKS -->
     <section class="section bg-parchment" id="how-it-works">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-label">How It Works</span>
                 <h2>A straightforward experience</h2>
                 <p>From first pickup to every return.</p>
             </div>
             <div class="steps-grid">
-                <div class="step">
+                <div class="step reveal reveal-delay-1">
                     <div class="step-number">1</div>
                     <h3>Create your account and add your items.</h3>
                     <p>Build a digital inventory of what you'd like stored, all in your private customer portal.</p>
                 </div>
-                <div class="step">
+                <div class="step reveal reveal-delay-2">
                     <div class="step-number">2</div>
                     <h3>We pick up and store everything securely.</h3>
                     <p>Our team arrives at your building, catalogs each item, and stores it with care.</p>
                 </div>
-                <div class="step">
+                <div class="step reveal reveal-delay-3">
                     <div class="step-number">3</div>
                     <h3>Get items back as needed.</h3>
                     <p>Request returns or send additional items through the portal to keep your home comfortable, organized, and clutter-free.</p>
@@ -250,12 +267,12 @@
     <!-- WHY STORAGE VALET -->
     <section class="section bg-white">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-label">Why Storage Valet</span>
                 <h2>Designed for the way you live here.</h2>
             </div>
             <div class="benefits-grid">
-                <div class="benefit-card">
+                <div class="benefit-card reveal reveal-delay-1">
                     <div class="benefit-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                             <rect x="1" y="3" width="15" height="13" rx="2"/>
@@ -267,7 +284,7 @@
                     <h3>White-glove service</h3>
                     <p>Pickup and returns handled by a professional team—no storage runs, no hassle.</p>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card reveal reveal-delay-2">
                     <div class="benefit-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
@@ -278,7 +295,7 @@
                     <h3>Reliable scheduling</h3>
                     <p>Clear windows, clear communication, and a process you can count on.</p>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card reveal reveal-delay-3">
                     <div class="benefit-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
@@ -295,7 +312,7 @@
     <!-- TESTIMONIALS -->
     <section class="section testimonials-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-label">What Our Clients Say</span>
                 <h2>Trusted by local residents</h2>
                 <p>Real experiences from neighbors who've reclaimed their space.</p>
@@ -450,12 +467,12 @@
     <!-- SIGNUP FORM -->
     <section class="section signup-section" id="signup">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-label">Get Started</span>
                 <h2>Begin your membership.</h2>
                 <p>Complete the form below to create your account.</p>
             </div>
-            <form class="signup-form" id="signup-form" action="#" method="POST">
+            <form class="signup-form reveal" id="signup-form" action="#" method="POST">
                 <!-- Error/Success message container -->
                 <div id="form-message" class="form-message" style="display: none;"></div>
                 <div class="form-row">
@@ -604,6 +621,51 @@
         window.addEventListener('scroll', () => {
             header.classList.toggle('scrolled', window.scrollY > 50);
         });
+
+        // Mobile nav toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileNav = document.getElementById('mobile-nav');
+        const mobileNavClose = document.getElementById('mobile-nav-close');
+        const mobileNavBackdrop = document.getElementById('mobile-nav-backdrop');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a, .mobile-nav-cta a');
+
+        function openMobileNav() {
+            mobileNav.classList.add('open');
+            mobileNavBackdrop.classList.add('open');
+            document.body.classList.add('nav-open');
+        }
+
+        function closeMobileNav() {
+            mobileNav.classList.remove('open');
+            mobileNavBackdrop.classList.remove('open');
+            document.body.classList.remove('nav-open');
+        }
+
+        mobileMenuBtn.addEventListener('click', openMobileNav);
+        mobileNavClose.addEventListener('click', closeMobileNav);
+        mobileNavBackdrop.addEventListener('click', closeMobileNav);
+
+        // Close nav when clicking a link
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', closeMobileNav);
+        });
+
+        // Scroll reveal animations (below fold only)
+        const revealElements = document.querySelectorAll('.reveal');
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+        } else {
+            revealElements.forEach(el => el.classList.add('revealed'));
+        }
 
         // FAQ accordion
         document.querySelectorAll('.faq-question').forEach(button => {
