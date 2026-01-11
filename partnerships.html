@@ -3,14 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Partner with Storage Valet to offer premium storage amenities to your residents. Building partnership program for Hudson County properties.">
-    <title>Building Partners | Storage Valet</title>
+    <meta name="description" content="Partner with Storage Valet to offer premium storage amenities to your residents. Zero cost, zero footprint, zero staff burden. A white-glove service for modern buildings.">
+    <title>Building Partnerships | Storage Valet</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Partnership Page Specific Tokens */
+        :root {
+            --sv-accent-teal: #0E6F6A;
+            --sv-action-brown: #6B4E3D;
+        }
+
+        /* Teal for section labels and links */
+        .partnerships .section-label {
+            color: var(--sv-accent-teal);
+        }
+
+        .partnerships .teal-link {
+            color: var(--sv-accent-teal);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .partnerships .teal-link:hover {
+            color: #0a5752;
+        }
+
+        /* Brown for primary CTAs only */
+        .partnerships .btn-action {
+            background: var(--sv-action-brown);
+            color: var(--white);
+            border-color: var(--sv-action-brown);
+        }
+
+        .partnerships .btn-action:hover {
+            background: #5a4233;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(107, 78, 61, 0.25);
+        }
+
+        /* Partnership tier cards */
+        .tier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .tier-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--alabaster);
+            transition: all var(--transition-normal);
+        }
+
+        .tier-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .tier-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: var(--sv-accent-teal);
+            color: var(--white);
+            border-radius: 50%;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .tier-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--dark-slate);
+            margin-bottom: 8px;
+        }
+
+        .tier-best-for {
+            font-size: 0.875rem;
+            color: var(--sv-accent-teal);
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .tier-description {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* NOT require section - critical prominence */
+        .not-require-section {
+            background: var(--parchment);
+            border: 2px solid var(--sv-accent-teal);
+            border-radius: 16px;
+            padding: 48px;
+            margin: 48px 0;
+        }
+
+        .not-require-section h2 {
+            color: var(--dark-slate);
+            margin-bottom: 24px;
+        }
+
+        .not-require-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .not-require-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: var(--white);
+            border-radius: 8px;
+        }
+
+        .not-require-item svg {
+            flex-shrink: 0;
+            color: var(--sv-accent-teal);
+        }
+
+        .not-require-item span {
+            font-weight: 500;
+            color: var(--dark-slate);
+        }
+
+        /* How it works steps */
+        .ops-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 32px;
+        }
+
+        .ops-step {
+            text-align: center;
+        }
+
+        .ops-step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: var(--sv-accent-teal);
+            color: var(--white);
+            border-radius: 50%;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        /* FAQ section */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-question {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark-slate);
+            margin-bottom: 12px;
+        }
+
+        .faq-answer {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Audience grid */
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .audience-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .audience-card h3 {
+            font-size: 1.125rem;
+            margin-bottom: 8px;
+        }
+
+        .audience-card p {
+            font-size: 0.9375rem;
+        }
+
+        /* CTA section */
+        .partnerships-cta {
+            background: var(--dark-slate);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .partnerships-cta h2 {
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .partnerships-cta p {
+            color: var(--alabaster);
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    </style>
 </head>
-<body>
+<body class="partnerships">
     <!-- HEADER -->
     <header class="header" id="header">
         <div class="container">
@@ -26,14 +257,14 @@
                 <nav class="nav">
                     <a href="/#how-it-works" class="nav-link">How It Works</a>
                     <a href="/#pricing" class="nav-link">Pricing</a>
-                    <a href="testimonials.html" class="nav-link">Testimonials</a>
                     <a href="faq.html" class="nav-link">FAQ</a>
+                    <a href="partnerships.html" class="nav-link" aria-current="page">Partnerships</a>
                     <div class="nav-cta">
                         <a href="https://portal.mystoragevalet.com" class="btn btn-ghost btn-sm">Portal Login</a>
                         <a href="/#signup" class="btn btn-primary btn-sm">Get Started</a>
                     </div>
                 </nav>
-                <button class="mobile-menu-btn" aria-label="Menu">
+                <button class="mobile-menu-btn" aria-label="Open navigation menu">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M3 12h18M3 6h18M3 18h18"/>
                     </svg>
@@ -42,94 +273,166 @@
         </div>
     </header>
 
-    <!-- PAGE HERO -->
+    <!-- HERO -->
     <section class="page-hero">
         <div class="container">
-            <h1>Building Partner Program</h1>
-            <p>Offer premium storage amenities to your residents—without the capital investment.</p>
+            <h1>A White-Glove Storage Amenity for Modern Buildings</h1>
+            <p>Premium pickup-and-delivery storage that enhances resident experience with zero operational burden on your team.</p>
         </div>
     </section>
 
-    <!-- VALUE PROP -->
+    <!-- WHO THIS IS FOR -->
     <section class="section bg-white">
         <div class="container">
             <div class="section-header">
-                <span class="section-label">For Property Managers</span>
-                <h2>A premium amenity that costs you nothing</h2>
-                <p>Storage Valet partners with luxury residential buildings to provide white-glove storage services as a resident benefit. No buildout required. No overhead. Just happier residents.</p>
+                <span class="section-label">Who This Is For</span>
+                <h2>Property teams who want more for their residents</h2>
+                <p>Storage Valet works with forward-thinking properties that value premium amenities without the operational complexity.</p>
+            </div>
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <h3>Property Managers</h3>
+                    <p>Add a differentiating amenity to your building without adding work to your plate. We handle everything.</p>
+                </div>
+                <div class="audience-card">
+                    <h3>Developers</h3>
+                    <p>Offer storage from day one of lease-up. No basement buildout, no additional square footage required.</p>
+                </div>
+                <div class="audience-card">
+                    <h3>Ownership Groups</h3>
+                    <p>Increase resident satisfaction and retention. Storage consistently ranks among top-requested amenities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT THIS DOES NOT REQUIRE - CRITICAL SECTION -->
+    <section class="section bg-alabaster">
+        <div class="container">
+            <div class="not-require-section">
+                <h2>What This Does NOT Require From Your Team</h2>
+                <div class="not-require-grid">
+                    <div class="not-require-item">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 6L6 18M6 6l12 12"/>
+                        </svg>
+                        <span>No storage rooms</span>
+                    </div>
+                    <div class="not-require-item">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 6L6 18M6 6l12 12"/>
+                        </svg>
+                        <span>No construction or footprint</span>
+                    </div>
+                    <div class="not-require-item">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 6L6 18M6 6l12 12"/>
+                        </svg>
+                        <span>No staff training</span>
+                    </div>
+                    <div class="not-require-item">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 6L6 18M6 6l12 12"/>
+                        </svg>
+                        <span>No elevator reservations</span>
+                    </div>
+                    <div class="not-require-item">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 6L6 18M6 6l12 12"/>
+                        </svg>
+                        <span>No billing involvement</span>
+                    </div>
+                    <div class="not-require-item">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 6L6 18M6 6l12 12"/>
+                        </svg>
+                        <span>No resident support burden</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARTNERSHIP OPTIONS -->
+    <section class="section bg-parchment">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Partnership Options</span>
+                <h2>Flexible engagement models</h2>
+                <p>Choose the partnership level that works for your property. From simple referral to deep integration.</p>
+            </div>
+            <div class="tier-grid">
+                <div class="tier-card">
+                    <span class="tier-number">1</span>
+                    <h3 class="tier-name">Approved Partner Amenity</h3>
+                    <p class="tier-best-for">Best for: Buildings testing resident interest</p>
+                    <p class="tier-description">List Storage Valet as an approved vendor. We provide marketing materials for your amenity packet. Residents sign up directly with us at standard rates. No cost to the building.</p>
+                </div>
+                <div class="tier-card">
+                    <span class="tier-number">2</span>
+                    <h3 class="tier-name">Preferred Partner Plus</h3>
+                    <p class="tier-best-for">Best for: Buildings wanting exclusive benefits</p>
+                    <p class="tier-description">Co-branded experience with your building. Residents receive priority scheduling and move-in coordination. Optional revenue share available for high-volume properties.</p>
+                </div>
+                <div class="tier-card">
+                    <span class="tier-number">3</span>
+                    <h3 class="tier-name">Sponsored Membership</h3>
+                    <p class="tier-best-for">Best for: Luxury buildings subsidizing amenities</p>
+                    <p class="tier-description">Building covers a portion of resident subscription cost. Increases adoption dramatically. Position storage as a true building amenity rather than an add-on service.</p>
+                </div>
+                <div class="tier-card">
+                    <span class="tier-number">4</span>
+                    <h3 class="tier-name">Portal Integration</h3>
+                    <p class="tier-best-for">Best for: Tech-forward properties with resident apps</p>
+                    <p class="tier-description">Staged integration into your resident portal. Starts with deep linking, can progress to SSO and eventually full API embedding. Residents never leave your ecosystem.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS OPERATIONALLY -->
+    <section class="section bg-white">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">How It Works</span>
+                <h2>Simple operations, premium experience</h2>
+            </div>
+            <div class="ops-steps">
+                <div class="ops-step">
+                    <div class="ops-step-number">1</div>
+                    <h3>Resident Signs Up</h3>
+                    <p>Resident subscribes directly through our portal or your building's referral. We handle all billing and onboarding.</p>
+                </div>
+                <div class="ops-step">
+                    <div class="ops-step-number">2</div>
+                    <h3>We Schedule Pickup</h3>
+                    <p>Resident requests a pickup through the app. We coordinate timing and arrive at their door. No elevator holds needed.</p>
+                </div>
+                <div class="ops-step">
+                    <div class="ops-step-number">3</div>
+                    <h3>Items in Storage</h3>
+                    <p>We transport, photograph, and catalog each item. Residents manage their inventory from their phone.</p>
+                </div>
+                <div class="ops-step">
+                    <div class="ops-step-number">4</div>
+                    <h3>Delivery on Demand</h3>
+                    <p>Resident requests items back. We deliver within 48 hours directly to their unit. Simple as that.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESIDENT EXPERIENCE -->
+    <section class="section bg-alabaster">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Resident Experience</span>
+                <h2>What your residents actually get</h2>
+                <p>A concierge-level storage service that feels like a natural extension of building amenities.</p>
             </div>
             <div class="benefits-grid">
                 <div class="benefit-card">
                     <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                        </svg>
-                    </div>
-                    <h3>Zero Cost</h3>
-                    <p>No capital investment, no buildout, no ongoing fees. We handle everything—you just promote the benefit.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                            <circle cx="9" cy="7" r="4"/>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
-                        </svg>
-                    </div>
-                    <h3>Resident Satisfaction</h3>
-                    <p>Help residents maximize their living space. Especially valuable for growing families and downsizers.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <rect x="3" y="3" width="18" height="18" rx="2"/>
-                            <path d="M3 9h18M9 21V9"/>
-                        </svg>
-                    </div>
-                    <h3>Differentiation</h3>
-                    <p>Stand out from competing buildings with a unique amenity that solves a real problem for city dwellers.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- HOW IT WORKS -->
-    <section class="section bg-parchment">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">How It Works</span>
-                <h2>Simple partnership, real value</h2>
-            </div>
-            <div class="steps-grid">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>We Partner</h3>
-                    <p>Sign a simple partnership agreement. No exclusivity required, no fees involved.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>You Promote</h3>
-                    <p>Add Storage Valet to your amenity list. We provide marketing materials for your residents.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Residents Benefit</h3>
-                    <p>Your residents sign up directly with us. We handle all service, billing, and logistics.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOR RESIDENTS -->
-    <section class="section bg-white">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">For Your Residents</span>
-                <h2>What residents love about Storage Valet</h2>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                             <rect x="1" y="3" width="15" height="13" rx="2"/>
                             <path d="M16 8h4l3 3v5h-7V8z"/>
@@ -138,10 +441,10 @@
                         </svg>
                     </div>
                     <h3>Doorstep Service</h3>
-                    <p>We pick up and deliver directly to their unit. No trips to off-site facilities.</p>
+                    <p>We pick up and deliver directly to their unit. No trips to off-site facilities. No rental vans.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                             <rect x="3" y="3" width="18" height="18" rx="2"/>
                             <circle cx="8.5" cy="8.5" r="1.5"/>
@@ -149,103 +452,65 @@
                         </svg>
                     </div>
                     <h3>Digital Inventory</h3>
-                    <p>Photos of every item. Browse and request specific items from their phone.</p>
+                    <p>Photos of every item. Browse and search from their phone. Request specific items for delivery.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <circle cx="12" cy="12" r="10"/>
-                            <polyline points="12 6 12 12 16 14"/>
-                        </svg>
-                    </div>
-                    <h3>48-Hour Delivery</h3>
-                    <p>Need something back? We deliver within 48 hours of their request.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                         </svg>
                     </div>
                     <h3>Fully Insured</h3>
-                    <p>$3,000 coverage included. Climate-controlled storage keeps items safe.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                            <circle cx="12" cy="7" r="4"/>
-                        </svg>
-                    </div>
-                    <h3>White-Glove Handling</h3>
-                    <p>Professional, background-checked team handles every item with care.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-                        </svg>
-                    </div>
-                    <h3>Flexible Scheduling</h3>
-                    <p>Evening and weekend appointments available at no extra charge.</p>
+                    <p>$3,000 coverage included. Climate-controlled storage. Professional handling by background-checked team.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- IDEAL BUILDINGS -->
-    <section class="section bg-alabaster">
+    <!-- OPERATIONAL FAQS -->
+    <section class="section bg-white">
         <div class="container">
             <div class="section-header">
-                <span class="section-label">Ideal Partners</span>
-                <h2>Best fit for luxury and mid-rise properties</h2>
-                <p>Storage Valet works especially well with buildings where residents value convenience and premium services.</p>
+                <span class="section-label">Operational FAQs</span>
+                <h2>Questions property teams ask</h2>
             </div>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <rect x="3" y="3" width="18" height="18" rx="2"/>
-                            <path d="M3 9h18M9 21V9"/>
-                        </svg>
-                    </div>
-                    <h3>Luxury High-Rises</h3>
-                    <p>Residents expect premium amenities. Storage Valet fits naturally alongside concierge, fitness, and lounge services.</p>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <p class="faq-question">Will this disrupt elevator access?</p>
+                    <p class="faq-answer">No. We use standard passenger elevators during off-peak hours. Typical pickup takes 15-20 minutes. We coordinate timing to avoid move-in/out conflicts.</p>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                            <polyline points="9 22 9 12 15 12 15 22"/>
-                        </svg>
-                    </div>
-                    <h3>Family-Friendly Buildings</h3>
-                    <p>Growing families need space. Storage Valet helps them stay in units they love rather than moving to larger apartments.</p>
+                <div class="faq-item">
+                    <p class="faq-question">Does this require staff involvement?</p>
+                    <p class="faq-answer">Zero staff involvement. We handle all logistics, billing, and resident communication. Your team never touches a box or answers a support question.</p>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M12 6v6l4 2"/>
-                        </svg>
-                    </div>
-                    <h3>Busy Professionals</h3>
-                    <p>Young professionals working long hours love that we handle everything. No weekend trips to storage facilities.</p>
+                <div class="faq-item">
+                    <p class="faq-question">What about liability?</p>
+                    <p class="faq-answer">We carry comprehensive insurance. Items are covered from pickup to delivery. The building assumes no liability for resident belongings in our care.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-question">What does this cost the building?</p>
+                    <p class="faq-answer">Tier 1 and 2 partnerships have no building cost. Tier 3 (Sponsored) involves optional subsidy. We structure the agreement to your budget.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-question">What happens at move-out?</p>
+                    <p class="faq-answer">Residents keep their subscription. If they move within our service area, we continue service at their new address. If they leave the area, we coordinate final delivery or storage transition.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-question">How quickly can we launch?</p>
+                    <p class="faq-answer">Tier 1 partnerships can launch within a week. We provide digital marketing assets and onboarding materials. No contracts longer than 12 months.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="section cta-section">
+    <!-- CTA SECTION -->
+    <section class="partnerships-cta">
         <div class="container">
-            <div class="cta-content">
-                <h2>Ready to partner?</h2>
-                <p>Let's discuss how Storage Valet can become a premium amenity for your residents.</p>
-                <div class="cta-buttons">
-                    <a href="mailto:partners@mystoragevalet.com" class="btn btn-primary">Contact Us</a>
-                    <a href="/#how-it-works" class="btn btn-outline">Learn More</a>
-                </div>
+            <h2>Ready to add premium storage to your amenity package?</h2>
+            <p>Let us walk you through the options. No obligation, no sales pressure. Just a conversation about what works for your property.</p>
+            <div class="cta-buttons">
+                <a href="mailto:partnerships@mystoragevalet.com" class="btn btn-action">Request Partnership Details</a>
+                <a href="/#how-it-works" class="teal-link" style="padding: 16px 24px; display: inline-flex; align-items: center;">Learn how the service works</a>
             </div>
         </div>
     </section>
@@ -276,7 +541,7 @@
                 <div class="footer-col">
                     <h4>Legal</h4>
                     <ul>
-                        <li><a href="faq.html">Insurance</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
                         <li><a href="terms.html">Terms of Service</a></li>
                         <li><a href="privacy.html">Privacy Policy</a></li>
                     </ul>
@@ -291,7 +556,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2025 Storage Valet. All rights reserved.</p>
+                <p>2025 Storage Valet. All rights reserved.</p>
                 <div class="footer-social">
                     <a href="#" aria-label="Facebook">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
