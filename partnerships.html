@@ -239,6 +239,128 @@
             justify-content: center;
             flex-wrap: wrap;
         }
+
+        /* ===== MOBILE RESPONSIVE (375px - 768px) ===== */
+        @media (max-width: 768px) {
+            /* Grids stack to single column */
+            .tier-grid,
+            .audience-grid,
+            .faq-grid,
+            .ops-steps {
+                grid-template-columns: 1fr;
+            }
+
+            /* Not-require grid: 2 columns on tablet, 1 on phone */
+            .not-require-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Reduce padding on feature box */
+            .not-require-section {
+                padding: 24px;
+                margin: 24px 0;
+            }
+
+            .not-require-section h2 {
+                font-size: 1.5rem;
+                line-height: 1.3;
+            }
+
+            /* Tier cards - reduce padding */
+            .tier-card {
+                padding: 24px;
+            }
+
+            /* CTA section - tighter on mobile */
+            .partnerships-cta {
+                padding: 48px 0;
+            }
+
+            .partnerships-cta h2 {
+                font-size: 1.5rem;
+                line-height: 1.3;
+                padding: 0 8px;
+            }
+
+            .partnerships-cta p {
+                font-size: 1rem;
+                padding: 0 8px;
+            }
+
+            /* CTA buttons stack vertically on mobile */
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+
+            /* Ensure tap targets meet 48px minimum */
+            .partnerships .btn-action {
+                min-height: 48px;
+                width: 100%;
+                max-width: 320px;
+                padding: 14px 24px;
+            }
+
+            .partnerships .teal-link {
+                min-height: 48px;
+                padding: 12px 24px !important;
+            }
+
+            /* Ops steps - tighter spacing */
+            .ops-steps {
+                gap: 24px;
+            }
+
+            .ops-step h3 {
+                font-size: 1.125rem;
+            }
+
+            /* FAQ items - reduce padding */
+            .faq-item {
+                padding: 20px;
+            }
+
+            /* Audience cards - reduce padding */
+            .audience-card {
+                padding: 24px;
+            }
+        }
+
+        /* Small phones (375px) */
+        @media (max-width: 390px) {
+            .not-require-section {
+                padding: 20px;
+                border-radius: 12px;
+            }
+
+            .not-require-item {
+                padding: 10px 12px;
+            }
+
+            .tier-card {
+                padding: 20px;
+            }
+
+            .partnerships-cta h2 {
+                font-size: 1.375rem;
+            }
+        }
+
+        /* Tablet breakpoint (768px) - 2 column grids */
+        @media (min-width: 481px) and (max-width: 768px) {
+            .not-require-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .tier-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .ops-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
     </style>
 </head>
 <body class="partnerships">
@@ -272,6 +394,29 @@
             </div>
         </div>
     </header>
+
+    <!-- MOBILE NAV DRAWER -->
+    <div class="mobile-nav" id="mobile-nav">
+        <div class="mobile-nav-header">
+            <span class="logo-text">Storage Valet</span>
+            <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <nav class="mobile-nav-links">
+            <a href="/#how-it-works">How It Works</a>
+            <a href="/#pricing">Pricing</a>
+            <a href="faq.html">FAQ</a>
+            <a href="partnerships.html" aria-current="page">Partnerships</a>
+        </nav>
+        <div class="mobile-nav-cta">
+            <a href="https://portal.mystoragevalet.com" class="btn btn-outline">Portal Login</a>
+            <a href="/#signup" class="btn btn-primary">Get Started</a>
+        </div>
+    </div>
+    <div class="mobile-nav-backdrop" id="mobile-nav-backdrop"></div>
 
     <!-- HERO -->
     <section class="page-hero">
@@ -583,9 +728,38 @@
     </footer>
 
     <script>
+        // Header scroll effect
         const header = document.getElementById('header');
         window.addEventListener('scroll', () => {
             header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile nav toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileNav = document.getElementById('mobile-nav');
+        const mobileNavClose = document.getElementById('mobile-nav-close');
+        const mobileNavBackdrop = document.getElementById('mobile-nav-backdrop');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a, .mobile-nav-cta a');
+
+        function openMobileNav() {
+            mobileNav.classList.add('open');
+            mobileNavBackdrop.classList.add('open');
+            document.body.classList.add('nav-open');
+        }
+
+        function closeMobileNav() {
+            mobileNav.classList.remove('open');
+            mobileNavBackdrop.classList.remove('open');
+            document.body.classList.remove('nav-open');
+        }
+
+        mobileMenuBtn.addEventListener('click', openMobileNav);
+        mobileNavClose.addEventListener('click', closeMobileNav);
+        mobileNavBackdrop.addEventListener('click', closeMobileNav);
+
+        // Close nav when clicking a link
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', closeMobileNav);
         });
     </script>
 </body>
