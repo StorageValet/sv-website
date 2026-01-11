@@ -259,18 +259,18 @@
 
         /* CTA section */
         .partnerships-cta {
-            background: var(--dark-slate);
+            background: var(--parchment);
             padding: 80px 0;
             text-align: center;
         }
 
         .partnerships-cta h2 {
-            color: var(--white);
+            color: var(--dark-slate);
             margin-bottom: 16px;
         }
 
         .partnerships-cta p {
-            color: var(--alabaster);
+            color: var(--sv-text-secondary);
             margin-bottom: 32px;
             max-width: 500px;
             margin-left: auto;
@@ -284,93 +284,21 @@
             flex-wrap: wrap;
         }
 
-        /* Partner contact form (mailto prefill; no backend) */
-        .partner-contact {
-            margin-top: 28px;
-            max-width: 640px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: left;
-        }
-
-        .partner-form {
-            display: grid;
-            gap: 12px;
-        }
-
-        .partner-form-row input,
-        .partner-form-row textarea {
-            width: 100%;
-            padding: 12px 14px;
-            border-radius: 10px;
-            border: 1px solid rgba(255,255,255,0.25);
-            background: rgba(255,255,255,0.08);
-            color: var(--white);
-            font-size: 0.95rem;
-        }
-
-        .partner-form-row input::placeholder,
-        .partner-form-row textarea::placeholder {
-            color: rgba(255,255,255,0.65);
-        }
-
-        .partner-form-row input:focus,
-        .partner-form-row textarea:focus {
-            outline: none;
-            border-color: rgba(255,255,255,0.65);
-            box-shadow: 0 0 0 3px rgba(14,111,106,0.22);
-        }
-
-        .partner-form-note {
-            margin-top: 8px;
-            font-size: 0.875rem;
-            color: rgba(255,255,255,0.72);
-            line-height: 1.5;
-        }
-
-        .partner-form-note a {
-            color: var(--sv-accent-teal);
-        }
-
-        /* Copy email button */
-        .copy-email-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            margin-left: 8px;
-            padding: 4px 8px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: var(--sv-accent-teal);
+        /* Secondary CTA - outline style for light background */
+        .partnerships-cta .btn-secondary {
             background: transparent;
-            border: 1px solid var(--sv-accent-teal);
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            vertical-align: middle;
+            color: var(--sv-text-secondary);
+            border: 1px solid var(--sv-text-secondary);
+            padding: 14px 28px;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: all var(--transition-normal);
         }
 
-        .copy-email-btn:hover {
-            background: var(--sv-accent-teal);
+        .partnerships-cta .btn-secondary:hover {
+            background: var(--sv-text-secondary);
             color: var(--white);
-        }
-
-        .copy-email-btn:hover svg {
-            stroke: var(--white);
-        }
-
-        .copy-email-btn svg {
-            stroke: var(--sv-accent-teal);
-            transition: stroke 0.2s ease;
-        }
-
-        .copy-email-btn.copied {
-            background: var(--sv-accent-teal);
-            color: var(--white);
-        }
-
-        .copy-email-btn.copied svg {
-            stroke: var(--white);
         }
 
         /* ===== MOBILE RESPONSIVE (375px - 768px) ===== */
@@ -415,11 +343,6 @@
                 padding: 0 8px;
             }
 
-            .partnerships-cta p {
-                font-size: 1rem;
-                padding: 0 8px;
-            }
-
             /* CTA buttons stack vertically on mobile */
             .cta-buttons {
                 flex-direction: column;
@@ -428,16 +351,12 @@
             }
 
             /* Ensure tap targets meet 48px minimum */
-            .partnerships .btn-action {
+            .partnerships .btn-action,
+            .partnerships-cta .btn-secondary {
                 min-height: 48px;
                 width: 100%;
                 max-width: 320px;
                 padding: 14px 24px;
-            }
-
-            .partnerships .teal-link {
-                min-height: 48px;
-                padding: 12px 24px !important;
             }
 
             /* Ops steps - tighter spacing */
@@ -792,36 +711,10 @@
     <!-- CTA SECTION -->
     <section class="partnerships-cta">
         <div class="container">
-            <h2>Ready to add premium storage to your amenity package?</h2>
-            <p>Let us walk you through the options. No obligation, no sales pressure. Just a conversation about what works for your property.</p>
+            <h2>Ready to explore a building partnership?</h2>
             <div class="cta-buttons">
-                <a href="https://calendly.com/REPLACE_ME/storage-valet" target="_blank" rel="noopener noreferrer" class="btn btn-action">Book a Call</a>
-                <a href="#partner-contact" class="btn btn-outline" style="color: var(--white); border-color: var(--white);">Send a message</a>
-                <a href="tel:+1REPLACE_ME" class="btn btn-outline" style="color: var(--white); border-color: var(--white);">Call us</a>
-            </div>
-            <div id="partner-contact" class="partner-contact" aria-label="Partner contact form">
-                <form class="partner-form" id="partner-form">
-                    <div class="partner-form-row">
-                        <label class="sr-only" for="partner-name">Name</label>
-                        <input id="partner-name" name="name" type="text" placeholder="Name" autocomplete="name" required>
-                    </div>
-                    <div class="partner-form-row">
-                        <label class="sr-only" for="partner-email">Email</label>
-                        <input id="partner-email" name="email" type="email" placeholder="Email" autocomplete="email" required>
-                    </div>
-                    <div class="partner-form-row">
-                        <label class="sr-only" for="partner-message">Message</label>
-                        <textarea id="partner-message" name="message" placeholder="Tell us about your building and what partnership you’re considering" rows="4" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-outline" style="color: var(--white); border-color: var(--white);">Email this message</button>
-                    <p class="partner-form-note">This form opens your email client with a pre-filled message. If you prefer, email <a id="partner-email-link" class="teal-link" href="mailto:partnerships@mystoragevalet.com">partnerships@mystoragevalet.com</a> <button type="button" id="copy-email-btn" class="copy-email-btn" aria-label="Copy email address" title="Copy email address">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="9" y="9" width="13" height="13" rx="2"/>
-                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-                            </svg>
-                            <span class="copy-email-text">Copy</span>
-                        </button></p>
-                </form>
+                <a href="https://calendly.com/storagevalet/building-partnership" target="_blank" rel="noopener noreferrer" class="btn btn-action">Schedule an on-site walkthrough</a>
+                <a href="mailto:partnerships@mystoragevalet.com" class="btn btn-secondary">Email partnerships@mystoragevalet.com</a>
             </div>
         </div>
     </section>
@@ -927,82 +820,6 @@
         mobileNavLinks.forEach(link => {
             link.addEventListener('click', closeMobileNav);
         });
-
-        // Partner contact form: open mail client with pre-filled message (no backend)
-        const partnerForm = document.getElementById('partner-form');
-        if (partnerForm) {
-            partnerForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-
-                const name = document.getElementById('partner-name')?.value?.trim() || '';
-                const email = document.getElementById('partner-email')?.value?.trim() || '';
-                const message = document.getElementById('partner-message')?.value?.trim() || '';
-
-                const subject = encodeURIComponent('Storage Valet Partnership Inquiry');
-                const bodyLines = [
-                    `Name: ${name}`,
-                    `Email: ${email}`,
-                    '',
-                    message
-                ];
-                const body = encodeURIComponent(bodyLines.join('\n'));
-
-                window.location.href = `mailto:partnerships@mystoragevalet.com?subject=${subject}&body=${body}`;
-            });
-        }
-
-        // Mailto link fallback: prevent blank tab issue in Chrome
-        const partnerEmailLink = document.getElementById('partner-email-link');
-        if (partnerEmailLink) {
-            partnerEmailLink.addEventListener('click', (e) => {
-                e.preventDefault();
-                window.location.href = partnerEmailLink.getAttribute('href');
-            });
-        }
-
-        // Copy email button functionality
-        const copyEmailBtn = document.getElementById('copy-email-btn');
-        if (copyEmailBtn) {
-            copyEmailBtn.addEventListener('click', async () => {
-                const email = 'partnerships@mystoragevalet.com';
-                const textSpan = copyEmailBtn.querySelector('.copy-email-text');
-
-                try {
-                    await navigator.clipboard.writeText(email);
-                    copyEmailBtn.classList.add('copied');
-                    if (textSpan) textSpan.textContent = 'Copied!';
-
-                    setTimeout(() => {
-                        copyEmailBtn.classList.remove('copied');
-                        if (textSpan) textSpan.textContent = 'Copy';
-                    }, 2000);
-                } catch (err) {
-                    // Fallback for older browsers
-                    const textArea = document.createElement('textarea');
-                    textArea.value = email;
-                    textArea.style.position = 'fixed';
-                    textArea.style.left = '-999999px';
-                    document.body.appendChild(textArea);
-                    textArea.select();
-                    try {
-                        document.execCommand('copy');
-                        copyEmailBtn.classList.add('copied');
-                        if (textSpan) textSpan.textContent = 'Copied!';
-
-                        setTimeout(() => {
-                            copyEmailBtn.classList.remove('copied');
-                            if (textSpan) textSpan.textContent = 'Copy';
-                        }, 2000);
-                    } catch (copyErr) {
-                        if (textSpan) textSpan.textContent = 'Failed';
-                        setTimeout(() => {
-                            if (textSpan) textSpan.textContent = 'Copy';
-                        }, 2000);
-                    }
-                    document.body.removeChild(textArea);
-                }
-            });
-        }
     </script>
 </body>
 </html>
