@@ -14,6 +14,7 @@
         :root {
             --sv-accent-teal: #0E6F6A;
             --sv-action-brown: #6B4E3D;
+            --sv-text-secondary: #4D5F63;  /* AA compliant on white + parchment */
         }
 
         /* Teal for section labels and links */
@@ -31,30 +32,30 @@
             color: #0a5752;
         }
 
-        /* Hero paragraph contrast fix (darker text) */
+        /* Hero paragraph uses semantic secondary text token */
         .partnerships .page-hero p {
-            color: #4A5A5E;
+            color: var(--sv-text-secondary);
         }
 
-        /* Primary button contrast fix (darker background for 4.5:1 ratio) */
+        /* Primary button uses Action Brown (retiring terracotta) */
         .partnerships .btn-primary {
-            background: #B85238;
-            border-color: #B85238;
+            background: var(--sv-action-brown);
+            border-color: var(--sv-action-brown);
         }
 
         .partnerships .btn-primary:hover {
-            background: #A04830;
-            border-color: #A04830;
+            background: #5a4233;
+            border-color: #5a4233;
         }
 
-        /* Secondary text contrast fix (darker for 4.5:1 on white/light backgrounds) */
+        /* Secondary text uses semantic token (AA on white + parchment) */
         .partnerships .section-header p,
         .partnerships .audience-card p,
         .partnerships .tier-description,
         .partnerships .ops-step p,
         .partnerships .benefit-card p,
         .partnerships .faq-answer {
-            color: #4D5F63;
+            color: var(--sv-text-secondary);
         }
 
         /* Footer contrast fixes (lighter text on dark background) */
@@ -138,7 +139,7 @@
 
         .tier-description {
             font-size: 0.9375rem;
-            color: var(--text-secondary);
+            color: var(--sv-text-secondary);
             line-height: 1.6;
         }
 
@@ -229,7 +230,7 @@
 
         .faq-answer {
             font-size: 0.9375rem;
-            color: var(--text-secondary);
+            color: var(--sv-text-secondary);
             line-height: 1.6;
         }
 
