@@ -259,18 +259,18 @@
 
         /* CTA section */
         .partnerships-cta {
-            background: var(--dark-slate);
+            background: var(--parchment);
             padding: 80px 0;
             text-align: center;
         }
 
         .partnerships-cta h2 {
-            color: var(--white);
+            color: var(--dark-slate);
             margin-bottom: 16px;
         }
 
         .partnerships-cta p {
-            color: var(--alabaster);
+            color: var(--sv-text-secondary);
             margin-bottom: 32px;
             max-width: 500px;
             margin-left: auto;
@@ -282,6 +282,23 @@
             gap: 16px;
             justify-content: center;
             flex-wrap: wrap;
+        }
+
+        /* Secondary CTA - outline style for light background */
+        .partnerships-cta .btn-secondary {
+            background: transparent;
+            color: var(--sv-text-secondary);
+            border: 1px solid var(--sv-text-secondary);
+            padding: 14px 28px;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: all var(--transition-normal);
+        }
+
+        .partnerships-cta .btn-secondary:hover {
+            background: var(--sv-text-secondary);
+            color: var(--white);
         }
 
         /* ===== MOBILE RESPONSIVE (375px - 768px) ===== */
@@ -326,11 +343,6 @@
                 padding: 0 8px;
             }
 
-            .partnerships-cta p {
-                font-size: 1rem;
-                padding: 0 8px;
-            }
-
             /* CTA buttons stack vertically on mobile */
             .cta-buttons {
                 flex-direction: column;
@@ -339,16 +351,12 @@
             }
 
             /* Ensure tap targets meet 48px minimum */
-            .partnerships .btn-action {
+            .partnerships .btn-action,
+            .partnerships-cta .btn-secondary {
                 min-height: 48px;
                 width: 100%;
                 max-width: 320px;
                 padding: 14px 24px;
-            }
-
-            .partnerships .teal-link {
-                min-height: 48px;
-                padding: 12px 24px !important;
             }
 
             /* Ops steps - tighter spacing */
@@ -703,11 +711,10 @@
     <!-- CTA SECTION -->
     <section class="partnerships-cta">
         <div class="container">
-            <h2>Ready to add premium storage to your amenity package?</h2>
-            <p>Let us walk you through the options. No obligation, no sales pressure. Just a conversation about what works for your property.</p>
+            <h2>Ready to explore a building partnership?</h2>
             <div class="cta-buttons">
-                <a href="mailto:partnerships@mystoragevalet.com" class="btn btn-action">Request Partnership Details</a>
-                <a href="/#how-it-works" class="btn btn-outline" style="color: var(--white); border-color: var(--white);">Learn how the service works</a>
+                <a href="https://calendly.com/storagevalet/building-partnership" target="_blank" rel="noopener noreferrer" class="btn btn-action">Schedule an on-site walkthrough</a>
+                <a href="mailto:partnerships@mystoragevalet.com" class="btn btn-secondary">Email partnerships@mystoragevalet.com</a>
             </div>
         </div>
     </section>
