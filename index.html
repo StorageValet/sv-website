@@ -58,6 +58,7 @@
             <a href="#pricing">Pricing</a>
             <a href="testimonials.html">Testimonials</a>
             <a href="faq.html">FAQ</a>
+            <a href="partnerships.html">Partnerships</a>
         </nav>
         <div class="mobile-nav-cta">
             <a href="https://portal.mystoragevalet.com" class="btn btn-outline">Portal Login</a>
@@ -85,11 +86,6 @@
                             </svg>
                         </a>
                         <a href="#how-it-works" class="btn btn-outline">See How It Works</a>
-                    </div>
-                    <div class="hero-proof">
-                        <div class="hero-proof-text">
-                            <strong>A simple membership. A professional team. A clutter-free home.</strong>
-                        </div>
                     </div>
                 </div>
                 <div class="hero-visual">
@@ -630,20 +626,20 @@
         const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a, .mobile-nav-cta a');
 
         function openMobileNav() {
-            mobileNav.classList.add('open');
-            mobileNavBackdrop.classList.add('open');
+            if (mobileNav) mobileNav.classList.add('open');
+            if (mobileNavBackdrop) mobileNavBackdrop.classList.add('open');
             document.body.classList.add('nav-open');
         }
 
         function closeMobileNav() {
-            mobileNav.classList.remove('open');
-            mobileNavBackdrop.classList.remove('open');
+            if (mobileNav) mobileNav.classList.remove('open');
+            if (mobileNavBackdrop) mobileNavBackdrop.classList.remove('open');
             document.body.classList.remove('nav-open');
         }
 
-        mobileMenuBtn.addEventListener('click', openMobileNav);
-        mobileNavClose.addEventListener('click', closeMobileNav);
-        mobileNavBackdrop.addEventListener('click', closeMobileNav);
+        if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMobileNav);
+        if (mobileNavClose) mobileNavClose.addEventListener('click', closeMobileNav);
+        if (mobileNavBackdrop) mobileNavBackdrop.addEventListener('click', closeMobileNav);
 
         // Close nav when clicking a link
         mobileNavLinks.forEach(link => {

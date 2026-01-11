@@ -33,7 +33,7 @@
                         <a href="/#signup" class="btn btn-primary btn-sm">Get Started</a>
                     </div>
                 </nav>
-                <button class="mobile-menu-btn" aria-label="Menu">
+                <button class="mobile-menu-btn" type="button" aria-label="Menu">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M3 12h18M3 6h18M3 18h18"/>
                     </svg>
@@ -41,6 +41,30 @@
             </div>
         </div>
     </header>
+
+    <!-- MOBILE NAV DRAWER -->
+    <div class="mobile-nav" id="mobile-nav">
+        <div class="mobile-nav-header">
+            <span class="logo-text">Storage Valet</span>
+            <button class="mobile-nav-close" id="mobile-nav-close" type="button" aria-label="Close menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <nav class="mobile-nav-links">
+            <a href="/#how-it-works">How It Works</a>
+            <a href="/#pricing">Pricing</a>
+            <a href="testimonials.html">Testimonials</a>
+            <a href="faq.html">FAQ</a>
+            <a href="partnerships.html">Partnerships</a>
+        </nav>
+        <div class="mobile-nav-cta">
+            <a href="https://portal.mystoragevalet.com" class="btn btn-outline">Portal Login</a>
+            <a href="/#signup" class="btn btn-primary">Get Started</a>
+        </div>
+    </div>
+    <div class="mobile-nav-backdrop" id="mobile-nav-backdrop"></div>
 
     <!-- PAGE HERO -->
     <section class="page-hero">
@@ -193,6 +217,33 @@
         const header = document.getElementById('header');
         window.addEventListener('scroll', () => {
             header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile nav toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileNav = document.getElementById('mobile-nav');
+        const mobileNavClose = document.getElementById('mobile-nav-close');
+        const mobileNavBackdrop = document.getElementById('mobile-nav-backdrop');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a, .mobile-nav-cta a');
+
+        function openMobileNav() {
+            if (mobileNav) mobileNav.classList.add('open');
+            if (mobileNavBackdrop) mobileNavBackdrop.classList.add('open');
+            document.body.classList.add('nav-open');
+        }
+
+        function closeMobileNav() {
+            if (mobileNav) mobileNav.classList.remove('open');
+            if (mobileNavBackdrop) mobileNavBackdrop.classList.remove('open');
+            document.body.classList.remove('nav-open');
+        }
+
+        if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMobileNav);
+        if (mobileNavClose) mobileNavClose.addEventListener('click', closeMobileNav);
+        if (mobileNavBackdrop) mobileNavBackdrop.addEventListener('click', closeMobileNav);
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', closeMobileNav);
         });
     </script>
 </body>
