@@ -1,5 +1,6 @@
 /* ===== STORAGE VALET DESIGN SYSTEM ===== */
-/* Brand Guide v1.0 | January 2025 */
+/* Brand Guide v2.0 | January 2025 */
+/* Canonical Palette - Terracotta RETIRED */
 
 :root {
     /* Core Palette */
@@ -9,16 +10,20 @@
     --cool-steel: #88989A;
     --alabaster: #E0E1DD;
     --parchment: #EEEBE5;
-    --burnt-peach: #D97757;
     --white: #FFFFFF;
-    
+
+    /* Action & Accent (NEW canonical system) */
+    --action-brown: #6B4E3D;      /* PRIMARY CTA ONLY */
+    --accent-teal: #0E6F6A;       /* Links, labels, icons, focus rings */
+    --text-secondary-safe: #4D5F63; /* AA-safe on parchment */
+
     /* Semantic */
     --text-primary: var(--gunmetal);
-    --text-secondary: var(--slate-grey);
+    --text-secondary: var(--text-secondary-safe);
     --text-muted: var(--cool-steel);
     --bg-primary: var(--alabaster);
     --bg-warm: var(--parchment);
-    --accent: var(--burnt-peach);
+    --accent: var(--accent-teal);
     --brand: var(--dark-slate);
     
     /* Spacing */
@@ -140,7 +145,7 @@ p {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--burnt-peach);
+    color: var(--accent-teal);
     margin-bottom: 16px;
 }
 
@@ -169,25 +174,25 @@ p {
 }
 
 .btn-primary {
-    background: var(--burnt-peach);
+    background: var(--action-brown);
     color: var(--white);
-    border-color: var(--burnt-peach);
-    box-shadow: 0 2px 8px rgba(217, 119, 87, 0);
+    border-color: var(--action-brown);
+    box-shadow: 0 2px 8px rgba(107, 78, 61, 0);
 }
 
 .btn-primary:hover {
-    background: #c86a4d;
+    background: #5a4133;
     transform: translateY(-3px);
-    box-shadow: 0 12px 28px rgba(217, 119, 87, 0.35);
+    box-shadow: 0 12px 28px rgba(107, 78, 61, 0.35);
 }
 
 .btn-primary:active {
     transform: translateY(-1px);
-    box-shadow: 0 6px 16px rgba(217, 119, 87, 0.25);
+    box-shadow: 0 6px 16px rgba(107, 78, 61, 0.25);
 }
 
 .btn-primary:focus-visible {
-    outline: 3px solid rgba(217, 119, 87, 0.5);
+    outline: 3px solid var(--accent-teal);
     outline-offset: 2px;
 }
 
@@ -528,7 +533,7 @@ body.nav-open {
 .hero-badge-dot {
     width: 8px;
     height: 8px;
-    background: var(--burnt-peach);
+    background: var(--accent-teal);
     border-radius: 50%;
     animation: pulse 2s infinite;
 }
@@ -718,8 +723,8 @@ body.nav-open {
 }
 
 .status-scheduled {
-    background: rgba(217, 119, 87, 0.15);
-    color: var(--burnt-peach);
+    background: rgba(14, 111, 106, 0.15);
+    color: var(--accent-teal);
 }
 
 /* Floating Cards */
@@ -767,11 +772,11 @@ body.nav-open {
 }
 
 .float-card-icon.success {
-    background: rgba(217, 119, 87, 0.1);
+    background: rgba(14, 111, 106, 0.1);
 }
 
 .float-card-icon.success svg {
-    color: var(--burnt-peach);
+    color: var(--accent-teal);
 }
 
 .float-card-text h5 {
@@ -907,8 +912,8 @@ body.nav-open {
 
 .pricing-badge {
     display: inline-block;
-    background: rgba(217, 119, 87, 0.1);
-    color: var(--burnt-peach);
+    background: rgba(14, 111, 106, 0.1);
+    color: var(--accent-teal);
     font-size: 0.8rem;
     font-weight: 600;
     padding: 6px 16px;
@@ -959,7 +964,7 @@ body.nav-open {
 .pricing-check {
     width: 24px;
     height: 24px;
-    background: rgba(217, 119, 87, 0.1);
+    background: rgba(14, 111, 106, 0.1);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -970,7 +975,7 @@ body.nav-open {
 .pricing-check svg {
     width: 14px;
     height: 14px;
-    color: var(--burnt-peach);
+    color: var(--accent-teal);
 }
 
 .pricing-cta {
@@ -1031,7 +1036,7 @@ body.nav-open {
 }
 
 .testimonials-section .section-label {
-    color: var(--burnt-peach);
+    color: var(--accent-teal);
 }
 
 .testimonials-section .section-header h2 {
@@ -1064,8 +1069,8 @@ body.nav-open {
 .testimonial-stars svg {
     width: 20px;
     height: 20px;
-    color: var(--burnt-peach);
-    fill: var(--burnt-peach);
+    color: var(--accent-teal);
+    fill: var(--accent-teal);
 }
 
 .testimonial-card blockquote {
@@ -1231,7 +1236,7 @@ body.nav-open {
 }
 
 .form-label .required {
-    color: var(--burnt-peach);
+    color: var(--accent-teal);
 }
 
 .form-input,
@@ -1256,8 +1261,8 @@ body.nav-open {
 .form-input:focus,
 .form-select:focus {
     outline: none;
-    border-color: var(--burnt-peach);
-    box-shadow: 0 0 0 3px rgba(217, 119, 87, 0.15), 0 4px 12px rgba(217, 119, 87, 0.08);
+    border-color: var(--accent-teal);
+    box-shadow: 0 0 0 3px rgba(14, 111, 106, 0.15), 0 4px 12px rgba(14, 111, 106, 0.08);
     background: var(--white);
 }
 
@@ -1328,7 +1333,7 @@ body.nav-open {
     content: "";
     width: 8px;
     height: 8px;
-    background: var(--burnt-peach);
+    background: var(--accent-teal);
     border-radius: 50%;
 }
 
@@ -1476,7 +1481,7 @@ body.nav-open {
 }
 
 .legal-content a:hover {
-    color: var(--burnt-peach);
+    color: var(--accent-teal);
 }
 
 /* ===== SCROLL REVEAL (below fold only) ===== */
