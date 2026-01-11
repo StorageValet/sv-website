@@ -285,7 +285,7 @@
         }
 
         /* Secondary CTA - outline style for light background */
-        .partnerships-cta .btn-secondary {
+        .partnerships-cta .btn-outline {
             background: transparent;
             color: var(--sv-text-secondary);
             border: 1px solid var(--sv-text-secondary);
@@ -296,7 +296,7 @@
             transition: all var(--transition-normal);
         }
 
-        .partnerships-cta .btn-secondary:hover {
+        .partnerships-cta .btn-outline:hover {
             background: var(--sv-text-secondary);
             color: var(--white);
         }
@@ -352,7 +352,7 @@
 
             /* Ensure tap targets meet 48px minimum */
             .partnerships .btn-action,
-            .partnerships-cta .btn-secondary {
+            .partnerships-cta .btn-outline {
                 min-height: 48px;
                 width: 100%;
                 max-width: 320px;
@@ -713,8 +713,8 @@
         <div class="container">
             <h2>Ready to explore a building partnership?</h2>
             <div class="cta-buttons">
-                <a href="https://calendly.com/storagevalet/building-partnership" target="_blank" rel="noopener noreferrer" class="btn btn-action">Schedule an on-site walkthrough</a>
-                <a href="mailto:partnerships@mystoragevalet.com" class="btn btn-secondary">Email partnerships@mystoragevalet.com</a>
+                <a id="partner-calendly" href="https://calendly.com/storagevalet/building-partnership" target="_blank" rel="noopener noreferrer" class="btn btn-action">Schedule an on-site meeting</a>
+                <a id="partner-email" href="mailto:partnerships@mystoragevalet.com" class="btn btn-outline">Email partnerships@mystoragevalet.com</a>
             </div>
         </div>
     </section>
