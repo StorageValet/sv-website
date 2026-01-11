@@ -85,6 +85,13 @@ h1 {
     letter-spacing: -0.03em;
 }
 
+/* Serif accent for hero headline */
+.hero h1 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+}
+
 h2 {
     font-size: clamp(2rem, 4vw, 2.75rem);
 }
@@ -179,6 +186,11 @@ p {
     box-shadow: 0 6px 16px rgba(217, 119, 87, 0.25);
 }
 
+.btn-primary:focus-visible {
+    outline: 3px solid rgba(217, 119, 87, 0.5);
+    outline-offset: 2px;
+}
+
 .btn-secondary {
     background: var(--dark-slate);
     color: var(--white);
@@ -205,6 +217,11 @@ p {
 .btn-outline:active {
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(44, 74, 82, 0.15);
+}
+
+.btn-outline:focus-visible {
+    outline: 3px solid rgba(44, 74, 82, 0.4);
+    outline-offset: 2px;
 }
 
 .btn-ghost {
@@ -1545,24 +1562,28 @@ body.nav-open {
         display: none;
     }
     
-    .features-grid,
-    .benefits-grid {
+    .features-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
+    /* Keep 3-column layout for 3-item grids until 768px to avoid 2+1 wrap */
+    .benefits-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+
     .steps-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 32px;
     }
-    
+
     .steps-grid::before {
         display: none;
     }
-    
+
     .testimonials-grid {
-        grid-template-columns: 1fr;
-        max-width: 560px;
-        margin: 0 auto;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
     }
     
     .footer-grid {
@@ -1644,8 +1665,14 @@ body.nav-open {
 
     .features-grid,
     .benefits-grid,
-    .steps-grid {
+    .steps-grid,
+    .testimonials-grid {
         grid-template-columns: 1fr;
+    }
+
+    .testimonials-grid {
+        max-width: 480px;
+        margin: 0 auto;
     }
 
     .step {
