@@ -1,2 +1,7 @@
 .vercel
 .DS_Store
+
+# Lighthouse artifacts
+lighthouse-*.json
+lighthouse-*.html
+lighthouse-*.report.*
