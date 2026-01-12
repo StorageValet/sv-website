@@ -1,10 +1,10 @@
 /* ===== STORAGE VALET DESIGN SYSTEM ===== */
-/* Brand Guide v2.0 | January 2025 */
-/* Canonical Palette - Terracotta RETIRED */
+/* Brand Guide v2.1 | January 2025 */
+/* Refined Palette - Deep Teal + Deeper Brown */
 
 :root {
     /* Core Palette */
-    --dark-slate: #2C4A52;
+    --deep-teal: #213C47;
     --gunmetal: #343A40;
     --slate-grey: #6A7F83;
     --cool-steel: #88989A;
@@ -12,8 +12,8 @@
     --parchment: #EEEBE5;
     --white: #FFFFFF;
 
-    /* Action & Accent (NEW canonical system) */
-    --action-brown: #6B4E3D;      /* PRIMARY CTA ONLY */
+    /* Action & Accent */
+    --deeper-brown: #5C4333;      /* PRIMARY CTA ONLY */
     --accent-teal: #0E6F6A;       /* Links, labels, icons, focus rings */
     --text-secondary-safe: #4D5F63; /* AA-safe on parchment */
 
@@ -24,7 +24,7 @@
     --bg-primary: var(--alabaster);
     --bg-warm: var(--parchment);
     --accent: var(--accent-teal);
-    --brand: var(--dark-slate);
+    --brand: var(--deep-teal);
     
     /* Spacing */
     --section-padding: 100px;
@@ -35,10 +35,10 @@
     --transition-normal: 0.25s ease;
 
     /* Shadow System */
-    --shadow-sm: 0 2px 8px rgba(44, 74, 82, 0.06);
-    --shadow-md: 0 4px 16px rgba(44, 74, 82, 0.08);
-    --shadow-lg: 0 12px 32px rgba(44, 74, 82, 0.12);
-    --shadow-xl: 0 24px 48px rgba(44, 74, 82, 0.15);
+    --shadow-sm: 0 2px 8px rgba(33, 60, 71, 0.06);
+    --shadow-md: 0 4px 16px rgba(33, 60, 71, 0.08);
+    --shadow-lg: 0 12px 32px rgba(33, 60, 71, 0.12);
+    --shadow-xl: 0 24px 48px rgba(33, 60, 71, 0.15);
 }
 
 /* ===== RESET & BASE ===== */
@@ -79,7 +79,7 @@ ul, ol {
 
 /* ===== TYPOGRAPHY ===== */
 h1, h2, h3, h4, h5, h6 {
-    color: var(--dark-slate);
+    color: var(--deep-teal);
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: -0.02em;
@@ -174,21 +174,21 @@ p {
 }
 
 .btn-primary {
-    background: var(--action-brown);
+    background: var(--deeper-brown);
     color: var(--white);
-    border-color: var(--action-brown);
-    box-shadow: 0 2px 8px rgba(107, 78, 61, 0);
+    border-color: var(--deeper-brown);
+    box-shadow: 0 2px 8px rgba(92, 67, 51, 0);
 }
 
 .btn-primary:hover {
-    background: #5a4133;
+    background: #4d3829;
     transform: translateY(-3px);
-    box-shadow: 0 12px 28px rgba(107, 78, 61, 0.35);
+    box-shadow: 0 12px 28px rgba(92, 67, 51, 0.35);
 }
 
 .btn-primary:active {
     transform: translateY(-1px);
-    box-shadow: 0 6px 16px rgba(107, 78, 61, 0.25);
+    box-shadow: 0 6px 16px rgba(92, 67, 51, 0.25);
 }
 
 .btn-primary:focus-visible {
@@ -197,9 +197,9 @@ p {
 }
 
 .btn-secondary {
-    background: var(--dark-slate);
+    background: var(--deep-teal);
     color: var(--white);
-    border-color: var(--dark-slate);
+    border-color: var(--deep-teal);
 }
 
 .btn-secondary:hover {
@@ -208,30 +208,30 @@ p {
 
 .btn-outline {
     background: transparent;
-    color: var(--dark-slate);
-    border-color: var(--dark-slate);
+    color: var(--deep-teal);
+    border-color: var(--deep-teal);
 }
 
 .btn-outline:hover {
-    background: var(--dark-slate);
+    background: var(--deep-teal);
     color: var(--white);
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(44, 74, 82, 0.2);
+    box-shadow: 0 8px 24px rgba(33, 60, 71, 0.2);
 }
 
 .btn-outline:active {
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(44, 74, 82, 0.15);
+    box-shadow: 0 4px 12px rgba(33, 60, 71, 0.15);
 }
 
 .btn-outline:focus-visible {
-    outline: 3px solid rgba(44, 74, 82, 0.4);
+    outline: 3px solid rgba(33, 60, 71, 0.4);
     outline-offset: 2px;
 }
 
 .btn-ghost {
     background: transparent;
-    color: var(--dark-slate);
+    color: var(--deep-teal);
     border-color: transparent;
     padding: 12px 16px;
 }
@@ -288,7 +288,7 @@ p {
 .logo-mark {
     width: 40px;
     height: 40px;
-    background: var(--dark-slate);
+    background: var(--deep-teal);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -305,7 +305,7 @@ p {
 .logo-text {
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--dark-slate);
+    color: var(--deep-teal);
     letter-spacing: -0.02em;
 }
 
@@ -325,12 +325,12 @@ p {
 }
 
 .nav-link:hover {
-    color: var(--dark-slate);
+    color: var(--deep-teal);
     background: var(--alabaster);
 }
 
 .nav-link.active {
-    color: var(--dark-slate);
+    color: var(--deep-teal);
     background: var(--alabaster);
 }
 
@@ -349,7 +349,7 @@ p {
 .mobile-menu-btn svg {
     width: 24px;
     height: 24px;
-    color: var(--dark-slate);
+    color: var(--deep-teal);
 }
 
 /* ===== MOBILE NAV DRAWER ===== */
@@ -384,7 +384,7 @@ p {
 .mobile-nav-header .logo-text {
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--dark-slate);
+    color: var(--deep-teal);
 }
 
 .mobile-nav-close {
@@ -407,7 +407,7 @@ p {
 .mobile-nav-close svg {
     width: 24px;
     height: 24px;
-    color: var(--dark-slate);
+    color: var(--deep-teal);
 }
 
 .mobile-nav-links {
@@ -491,7 +491,7 @@ body.nav-open {
     right: -200px;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(44, 74, 82, 0.03) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(33, 60, 71, 0.03) 0%, transparent 70%);
     border-radius: 50%;
     pointer-events: none;
 }
@@ -525,7 +525,7 @@ body.nav-open {
     border-radius: 100px;
     font-size: 0.85rem;
     font-weight: 500;
-    color: var(--dark-slate);
+    color: var(--deep-teal);
     margin-bottom: 24px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
@@ -567,7 +567,7 @@ body.nav-open {
     gap: 16px;
     margin-top: 48px;
     padding-top: 32px;
-    border-top: 1px solid rgba(44, 74, 82, 0.1);
+    border-top: 1px solid rgba(33, 60, 71, 0.1);
 }
 
 .hero-avatars {
@@ -599,7 +599,7 @@ body.nav-open {
 }
 
 .hero-proof-text strong {
-    color: var(--dark-slate);
+    color: var(--deep-teal);
 }
 
 /* Hero Visual */
@@ -635,7 +635,7 @@ body.nav-open {
 .mockup-avatar {
     width: 48px;
     height: 48px;
-    background: var(--dark-slate);
+    background: var(--deep-teal);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -718,8 +718,8 @@ body.nav-open {
 }
 
 .status-stored {
-    background: rgba(44, 74, 82, 0.1);
-    color: var(--dark-slate);
+    background: rgba(33, 60, 71, 0.1);
+    color: var(--deep-teal);
 }
 
 .status-scheduled {
@@ -796,7 +796,7 @@ body.nav-open {
 .float-card-stat .number {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--dark-slate);
+    color: var(--deep-teal);
     line-height: 1;
 }
 
@@ -827,7 +827,7 @@ body.nav-open {
 .feature-icon {
     width: 64px;
     height: 64px;
-    background: var(--dark-slate);
+    background: var(--deep-teal);
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -864,7 +864,7 @@ body.nav-open {
     left: 15%;
     right: 15%;
     height: 2px;
-    background: var(--dark-slate);
+    background: var(--deep-teal);
     opacity: 0.15;
 }
 
@@ -884,8 +884,8 @@ body.nav-open {
     margin: 0 auto 24px;
     font-size: 2rem;
     font-weight: 700;
-    color: var(--dark-slate);
-    box-shadow: 0 8px 32px rgba(44, 74, 82, 0.1);
+    color: var(--deep-teal);
+    box-shadow: 0 8px 32px rgba(33, 60, 71, 0.1);
     position: relative;
     z-index: 1;
 }
@@ -906,7 +906,7 @@ body.nav-open {
     background: var(--white);
     border-radius: 24px;
     padding: 48px;
-    box-shadow: 0 24px 48px rgba(44, 74, 82, 0.1);
+    box-shadow: 0 24px 48px rgba(33, 60, 71, 0.1);
     text-align: center;
 }
 
@@ -928,7 +928,7 @@ body.nav-open {
 .pricing-amount .price {
     font-size: 4rem;
     font-weight: 700;
-    color: var(--dark-slate);
+    color: var(--deep-teal);
     letter-spacing: -0.03em;
     line-height: 1;
 }
@@ -1000,13 +1000,13 @@ body.nav-open {
     border-radius: 20px;
     padding: 32px;
     text-align: center;
-    box-shadow: 0 4px 24px rgba(44, 74, 82, 0.06);
+    box-shadow: 0 4px 24px rgba(33, 60, 71, 0.06);
     transition: all var(--transition-normal);
 }
 
 .benefit-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(44, 74, 82, 0.1);
+    box-shadow: 0 12px 32px rgba(33, 60, 71, 0.1);
 }
 
 .benefit-icon {
@@ -1023,7 +1023,7 @@ body.nav-open {
 .benefit-icon svg {
     width: 40px;
     height: 40px;
-    color: var(--dark-slate);
+    color: var(--deep-teal);
 }
 
 .benefit-card h3 {
@@ -1032,7 +1032,7 @@ body.nav-open {
 
 /* ===== TESTIMONIALS ===== */
 .testimonials-section {
-    background: var(--dark-slate);
+    background: var(--deep-teal);
 }
 
 .testimonials-section .section-label {
@@ -1123,7 +1123,7 @@ body.nav-open {
     border-radius: 16px;
     margin-bottom: 16px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(44, 74, 82, 0.04);
+    box-shadow: 0 2px 8px rgba(33, 60, 71, 0.04);
 }
 
 .faq-question {
@@ -1139,7 +1139,7 @@ body.nav-open {
     cursor: pointer;
     font-size: 1rem;
     font-weight: 600;
-    color: var(--dark-slate);
+    color: var(--deep-teal);
     transition: background var(--transition-fast);
 }
 
@@ -1210,7 +1210,7 @@ body.nav-open {
     background: var(--white);
     border-radius: 24px;
     padding: 48px;
-    box-shadow: 0 24px 48px rgba(44, 74, 82, 0.1);
+    box-shadow: 0 24px 48px rgba(33, 60, 71, 0.1);
 }
 
 .form-row {
@@ -1231,7 +1231,7 @@ body.nav-open {
     display: block;
     font-size: 0.9rem;
     font-weight: 600;
-    color: var(--dark-slate);
+    color: var(--deep-teal);
     margin-bottom: 8px;
 }
 
@@ -1300,7 +1300,7 @@ body.nav-open {
 .form-trust svg {
     width: 16px;
     height: 16px;
-    color: var(--dark-slate);
+    color: var(--deep-teal);
 }
 
 /* ===== SERVICE AREA ===== */
@@ -1325,8 +1325,8 @@ body.nav-open {
     padding: 12px 20px;
     border-radius: 100px;
     font-weight: 500;
-    color: var(--dark-slate);
-    box-shadow: 0 2px 8px rgba(44, 74, 82, 0.06);
+    color: var(--deep-teal);
+    box-shadow: 0 2px 8px rgba(33, 60, 71, 0.06);
 }
 
 .service-city::before {
@@ -1339,7 +1339,7 @@ body.nav-open {
 
 /* ===== FOOTER ===== */
 .footer {
-    background: var(--dark-slate);
+    background: var(--deep-teal);
     color: var(--alabaster);
     padding: 80px 0 40px;
 }
@@ -1476,7 +1476,7 @@ body.nav-open {
 }
 
 .legal-content a {
-    color: var(--dark-slate);
+    color: var(--deep-teal);
     text-decoration: underline;
 }
 
@@ -1514,7 +1514,7 @@ body.nav-open {
 .bg-white { background: var(--white); }
 .bg-alabaster { background: var(--alabaster); }
 .bg-parchment { background: var(--parchment); }
-.bg-dark { background: var(--dark-slate); }
+.bg-dark { background: var(--deep-teal); }
 
 .text-center { text-align: center; }
 .text-left { text-align: left; }

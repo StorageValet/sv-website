@@ -20,16 +20,18 @@ This is a static HTML/CSS marketing website. It has:
 ## Making Changes
 Edit HTML/CSS files directly. No build step required.
 
-## Brand Colors (January 2025)
+## Brand Colors (v2.1 — January 2025)
 
-The marketing site uses a distinct color palette from the customer portal.
+The marketing site uses a refined 8-color palette with Deep Teal anchor and Deeper Brown CTAs.
 
 | Token | Hex | Usage |
 |-------|-----|-------|
-| `--action-brown` | #6B4E3D | Primary CTA buttons only |
+| `--deep-teal` | #213C47 | Hero panels, headers (anchor) |
+| `--deeper-brown` | #5C4333 | Primary CTA buttons only |
 | `--accent-teal` | #0E6F6A | Links, labels, icons, focus rings |
-| `--dark-slate` | #2C4A52 | Hero panels, headers |
 | `--gunmetal` | #343A40 | Body text |
+| `--slate-grey` | #6A7F83 | Secondary text |
+| `--cool-steel` | #88989A | Chrome, borders |
 | `--parchment` | #EEEBE5 | Warm backgrounds |
 | `--alabaster` | #E0E1DD | Cool backgrounds |
 
