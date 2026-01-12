@@ -1,6 +1,6 @@
 /* ===== STORAGE VALET DESIGN SYSTEM ===== */
 /* Brand Guide v2.1 | January 2025 */
-/* Refined Palette - Deep Teal + Deeper Brown */
+/* Refined Palette - Deep Teal + Action Brown */
 
 :root {
     /* Core Palette */
@@ -13,7 +13,7 @@
     --white: #FFFFFF;
 
     /* Action & Accent */
-    --deeper-brown: #5C4333;      /* PRIMARY CTA ONLY */
+    --action-brown: #6B4E3D;      /* PRIMARY CTA ONLY */
     --accent-teal: #0E6F6A;       /* Links, labels, icons, focus rings */
     --text-secondary-safe: #4D5F63; /* AA-safe on parchment */
 
@@ -174,21 +174,21 @@ p {
 }
 
 .btn-primary {
-    background: var(--deeper-brown);
+    background: var(--action-brown);
     color: var(--white);
-    border-color: var(--deeper-brown);
-    box-shadow: 0 2px 8px rgba(92, 67, 51, 0);
+    border-color: var(--action-brown);
+    box-shadow: 0 2px 8px rgba(107, 78, 61, 0);
 }
 
 .btn-primary:hover {
-    background: #4d3829;
+    background: #5a4133;
     transform: translateY(-3px);
-    box-shadow: 0 12px 28px rgba(92, 67, 51, 0.35);
+    box-shadow: 0 12px 28px rgba(107, 78, 61, 0.35);
 }
 
 .btn-primary:active {
     transform: translateY(-1px);
-    box-shadow: 0 6px 16px rgba(92, 67, 51, 0.25);
+    box-shadow: 0 6px 16px rgba(107, 78, 61, 0.25);
 }
 
 .btn-primary:focus-visible {

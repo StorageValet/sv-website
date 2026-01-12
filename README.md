@@ -22,12 +22,12 @@ Edit HTML/CSS files directly. No build step required.
 
 ## Brand Colors (v2.1 — January 2025)
 
-The marketing site uses a refined 8-color palette with Deep Teal anchor and Deeper Brown CTAs.
+The marketing site uses a refined 8-color palette with Deep Teal anchor and Action Brown CTAs.
 
 | Token | Hex | Usage |
 |-------|-----|-------|
 | `--deep-teal` | #213C47 | Hero panels, headers (anchor) |
-| `--deeper-brown` | #5C4333 | Primary CTA buttons only |
+| `--action-brown` | #6B4E3D | Primary CTA buttons only |
 | `--accent-teal` | #0E6F6A | Links, labels, icons, focus rings |
 | `--gunmetal` | #343A40 | Body text |
 | `--slate-grey` | #6A7F83 | Secondary text |
