@@ -19,3 +19,18 @@ This is a static HTML/CSS marketing website. It has:
 
 ## Making Changes
 Edit HTML/CSS files directly. No build step required.
+
+## Brand Colors (January 2025)
+
+The marketing site uses a distinct color palette from the customer portal.
+
+| Token | Hex | Usage |
+|-------|-----|-------|
+| `--action-brown` | #6B4E3D | Primary CTA buttons only |
+| `--accent-teal` | #0E6F6A | Links, labels, icons, focus rings |
+| `--dark-slate` | #2C4A52 | Hero panels, headers |
+| `--gunmetal` | #343A40 | Body text |
+| `--parchment` | #EEEBE5 | Warm backgrounds |
+| `--alabaster` | #E0E1DD | Cool backgrounds |
+
+See `styles.css` `:root` block for the complete token system.
