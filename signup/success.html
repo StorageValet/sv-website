@@ -100,6 +100,16 @@
             font-weight: 600;
             flex-shrink: 0;
         }
+        .success-step-icon {
+            width: 32px;
+            height: 32px;
+            color: #0E6F6A;
+            flex-shrink: 0;
+        }
+        .success-step-icon svg {
+            width: 100%;
+            height: 100%;
+        }
         .success-step-text {
             font-size: 14px;
             color: rgba(15, 41, 66, 0.8);
@@ -178,11 +188,34 @@
             <div class="success-steps" style="margin-top: 24px;">
                 <h3>Getting Started in Your Portal</h3>
                 <div class="success-step">
-                    <span class="success-step-num">•</span>
+                    <span class="success-step-icon">
+                        <svg viewBox="0 0 64 64" fill="none">
+                            <g stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="20" y="10" width="24" height="44" rx="5"/>
+                                <path d="M28 14h8"/>
+                                <circle cx="32" cy="50" r="1.5"/>
+                                <rect x="26" y="22" width="12" height="10" rx="1.5"/>
+                                <path d="M26 28h12"/>
+                                <rect x="26" y="36" width="12" height="10" rx="1.5"/>
+                                <path d="M26 42h12"/>
+                            </g>
+                        </svg>
+                    </span>
                     <span class="success-step-text"><strong>Create inventory items:</strong> Add images, descriptions, and tags so you can easily search and manage your belongings.</span>
                 </div>
                 <div class="success-step">
-                    <span class="success-step-num">•</span>
+                    <span class="success-step-icon">
+                        <svg viewBox="0 0 64 64" fill="none">
+                            <g stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="12" y="14" width="40" height="38" rx="4"/>
+                                <path d="M20 10v8M44 10v8"/>
+                                <path d="M12 22h40"/>
+                                <rect x="20" y="28" width="8" height="8" rx="1.5"/>
+                                <path d="M38 30l-4 4-2-2"/>
+                                <rect x="30" y="40" width="8" height="8" rx="1.5"/>
+                            </g>
+                        </svg>
+                    </span>
                     <span class="success-step-text"><strong>Schedule your pickup:</strong> Click "Book Appointment" to choose a date and time. Your appointment will appear under "My Bookings." You can also schedule item redelivery during the same appointment!</span>
                 </div>
             </div>
