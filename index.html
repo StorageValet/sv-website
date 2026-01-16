@@ -262,17 +262,53 @@
             </div>
             <div class="steps-grid">
                 <div class="step reveal reveal-delay-1">
-                    <div class="step-number">1</div>
+                    <div class="step-circle-container">
+                        <div class="step-circle-flipper">
+                            <div class="step-circle-front">1</div>
+                            <div class="step-circle-back">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                                    <path d="M9 14h6"></path>
+                                    <path d="M9 18h6"></path>
+                                    <path d="M9 10h6"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
                     <h3>Create your account and add your items.</h3>
                     <p>Create an inventory. Use your secure portal to add items and photos.</p>
                 </div>
                 <div class="step reveal reveal-delay-2">
-                    <div class="step-number">2</div>
+                    <div class="step-circle-container">
+                        <div class="step-circle-flipper">
+                            <div class="step-circle-front">2</div>
+                            <div class="step-circle-back">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="1" y="3" width="15" height="13"></rect>
+                                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                                    <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                                    <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
                     <h3>We pick up and store everything securely.</h3>
                     <p>Our team arrives at your building and scans your inventory.</p>
                 </div>
                 <div class="step reveal reveal-delay-3">
-                    <div class="step-number">3</div>
+                    <div class="step-circle-container">
+                        <div class="step-circle-flipper">
+                            <div class="step-circle-front">3</div>
+                            <div class="step-circle-back">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
                     <h3>Get items back as needed.</h3>
                     <p>Request returns or send additional items through the portal to keep your home comfortable, organized, and clutter-free.</p>
                 </div>
@@ -765,6 +801,27 @@
                 section.classList.add('is-visible');
             }
         });
+
+        // Auto-flip step circles when section comes into view (mobile enhancement)
+        const stepCircles = document.querySelectorAll('.step-circle-container');
+        if (stepCircles.length > 0 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            const stepObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Stagger the flip animation
+                        stepCircles.forEach((circle, index) => {
+                            setTimeout(() => {
+                                circle.classList.add('flipped');
+                            }, index * 200); // 200ms delay between each
+                        });
+                        stepObserver.disconnect(); // Only trigger once
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            // Observe the first step circle
+            stepObserver.observe(stepCircles[0]);
+        }
 
         // FAQ accordion
         document.querySelectorAll('.faq-question').forEach(button => {
