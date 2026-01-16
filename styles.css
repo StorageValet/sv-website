@@ -481,16 +481,9 @@ body.nav-open {
 /* ===== HERO ===== */
 .hero {
     padding: 180px 0 120px;
-    background: linear-gradient(135deg, var(--parchment) 0%, var(--alabaster) 50%, var(--parchment) 100%);
-    background-size: 200% 200%;
-    animation: heroGradient 25s ease infinite;
+    background: linear-gradient(180deg, var(--white) 0%, var(--parchment) 100%);
     position: relative;
     overflow: hidden;
-}
-
-@keyframes heroGradient {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
 }
 
 .hero::before {
@@ -505,13 +498,7 @@ body.nav-open {
     pointer-events: none;
 }
 
-/* Reduced motion: disable gradient animation */
-@media (prefers-reduced-motion: reduce) {
-    .hero {
-        animation: none;
-        background: var(--bg-warm);
-    }
-}
+/* Reduced motion: hero is already static, no animation to disable */
 
 .hero-inner {
     display: grid;
