@@ -742,6 +742,30 @@
             revealElements.forEach(el => el.classList.add('revealed'));
         }
 
+        // Fade-in section animations (enhanced reveal)
+        const fadeObserverOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    fadeObserver.unobserve(entry.target);
+                }
+            });
+        }, fadeObserverOptions);
+
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                fadeObserver.observe(section);
+            } else {
+                section.classList.add('is-visible');
+            }
+        });
+
         // FAQ accordion
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
