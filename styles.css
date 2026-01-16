@@ -14,6 +14,7 @@
 
     /* Action & Accent */
     --action-brown: #6B4E3D;      /* PRIMARY CTA ONLY */
+    --action-brown-hover: #553E30; /* Darker brown for hover states */
     --accent-teal: #0E6F6A;       /* Links, labels, icons, focus rings */
     --text-secondary-safe: #4D5F63; /* AA-safe on parchment */
 
@@ -29,10 +30,18 @@
     /* Spacing */
     --section-padding: 100px;
     --container-max: 1200px;
-    
+    --container-width: 1200px; /* Alias for consistency */
+
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+
     /* Transitions */
     --transition-fast: 0.15s ease;
     --transition-normal: 0.25s ease;
+    --transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 
     /* Shadow System */
     --shadow-sm: 0 2px 8px rgba(33, 60, 71, 0.06);
