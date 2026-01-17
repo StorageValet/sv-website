@@ -897,16 +897,18 @@ body.nav-open {
 
 /* ===== 3D FLIP CARDS FOR STEPS ===== */
 .step-circle-container {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     margin: 0 auto 24px;
     perspective: 1000px;
     cursor: pointer;
     outline: none;
 }
 
-.step-circle-container:focus-visible .step-circle-flipper {
-    transform: rotateY(180deg);
+.step-circle-container:focus-visible {
+    outline: 2px solid var(--accent-teal);
+    outline-offset: 4px;
+    border-radius: 50%;
 }
 
 .step-circle-flipper {
@@ -918,14 +920,14 @@ body.nav-open {
     transform-style: preserve-3d;
 }
 
-/* Desktop: hover to flip */
+/* Hover flip only on devices that support hover (not touch) */
 @media (hover: hover) {
     .step-circle-container:hover .step-circle-flipper {
         transform: rotateY(180deg);
     }
 }
 
-/* Mobile: tap to toggle (handled via JS adding .flipped class) */
+/* Class-based flip always works (touch + click) */
 .step-circle-container.flipped .step-circle-flipper {
     transform: rotateY(180deg);
 }
@@ -941,73 +943,45 @@ body.nav-open {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 10px 20px rgba(33, 60, 71, 0.08);
-    border: 2px solid var(--alabaster);
-    transition: box-shadow 0.3s ease;
+    box-shadow: 0 10px 20px rgba(33, 60, 71, 0.05);
+    border: 2px solid var(--parchment);
 }
 
-.step-circle-container:hover .step-circle-front,
-.step-circle-container:hover .step-circle-back {
-    box-shadow: 0 14px 28px rgba(33, 60, 71, 0.12);
-}
-
-/* Front: Icon on white background */
 .step-circle-front {
     background-color: var(--white);
+    font-size: 2rem;
+    font-weight: 700;
     color: var(--deep-teal);
     z-index: 2;
 }
 
-.step-circle-front svg {
-    width: 48px;
-    height: 48px;
-    stroke-width: 1.5;
-}
-
-/* Back: Value text on deep teal background */
 .step-circle-back {
     background-color: var(--deep-teal);
     color: var(--white);
     transform: rotateY(180deg);
     border-color: var(--deep-teal);
-    padding: 12px;
 }
 
-.step-value-text {
-    font-size: 0.7rem;
-    font-weight: 500;
-    line-height: 1.4;
-    text-align: center;
-}
-
-/* Hint text below steps */
-.steps-hint {
-    text-align: center;
-    color: var(--slate-grey);
-    font-size: 0.85rem;
-    margin-top: 32px;
-    opacity: 0.8;
+.step-circle-back svg {
+    width: 48px;
+    height: 48px;
+    stroke-width: 2;
 }
 
 /* Responsive adjustments for flip cards */
 @media (max-width: 768px) {
     .step-circle-container {
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
     }
 
-    .step-circle-front svg {
+    .step-circle-front {
+        font-size: 1.75rem;
+    }
+
+    .step-circle-back svg {
         width: 40px;
         height: 40px;
-    }
-
-    .step-value-text {
-        font-size: 0.6rem;
-        line-height: 1.3;
-    }
-
-    .steps-hint {
-        font-size: 0.8rem;
     }
 }
 
@@ -1622,14 +1596,21 @@ body.nav-open {
     }
 }
 
-/* ===== FADE-IN SECTION (enhanced reveal) ===== */
+/* ===== FADE-IN SECTION (enhanced reveal with JS fail-safe) ===== */
+/* Visible by default (fail-safe if JS disabled) */
 .fade-in-section {
+    opacity: 1;
+    transform: none;
+}
+
+/* Only hide when JS is enabled */
+html.js .fade-in-section {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.fade-in-section.is-visible {
+html.js .fade-in-section.is-visible {
     opacity: 1;
     transform: none;
 }
@@ -1642,7 +1623,7 @@ body.nav-open {
 
 /* Reduced motion: show fade-in sections immediately */
 @media (prefers-reduced-motion: reduce) {
-    .fade-in-section {
+    html.js .fade-in-section {
         opacity: 1;
         transform: none;
         transition: none;
