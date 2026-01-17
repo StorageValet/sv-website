@@ -902,6 +902,13 @@ body.nav-open {
     margin: 0 auto 24px;
     perspective: 1000px;
     cursor: pointer;
+    outline: none;
+}
+
+.step-circle-container:focus-visible {
+    outline: 2px solid var(--accent-teal);
+    outline-offset: 4px;
+    border-radius: 50%;
 }
 
 .step-circle-flipper {
@@ -1582,14 +1589,21 @@ body.nav-open {
     }
 }
 
-/* ===== FADE-IN SECTION (enhanced reveal) ===== */
+/* ===== FADE-IN SECTION (enhanced reveal with JS fail-safe) ===== */
+/* Visible by default (fail-safe if JS disabled) */
 .fade-in-section {
+    opacity: 1;
+    transform: none;
+}
+
+/* Only hide when JS is enabled */
+html.js .fade-in-section {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.fade-in-section.is-visible {
+html.js .fade-in-section.is-visible {
     opacity: 1;
     transform: none;
 }
@@ -1602,7 +1616,7 @@ body.nav-open {
 
 /* Reduced motion: show fade-in sections immediately */
 @media (prefers-reduced-motion: reduce) {
-    .fade-in-section {
+    html.js .fade-in-section {
         opacity: 1;
         transform: none;
         transition: none;

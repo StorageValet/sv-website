@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>document.documentElement.classList.add('js');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Storage Valet - Premium storage concierge service for Hudson County. White-glove pickup, secure storage, and doorstep delivery. Starting at $299/month.">
@@ -192,7 +193,7 @@
             </div>
             <div class="steps-grid">
                 <div class="step reveal reveal-delay-1">
-                    <div class="step-circle-container">
+                    <div class="step-circle-container" role="button" tabindex="0" aria-label="Step 1: Create your account">
                         <div class="step-circle-flipper">
                             <div class="step-circle-front">1</div>
                             <div class="step-circle-back">
@@ -210,7 +211,7 @@
                     <p>Create an inventory. Use your secure portal to add items and photos.</p>
                 </div>
                 <div class="step reveal reveal-delay-2">
-                    <div class="step-circle-container">
+                    <div class="step-circle-container" role="button" tabindex="0" aria-label="Step 2: We pick up and store">
                         <div class="step-circle-flipper">
                             <div class="step-circle-front">2</div>
                             <div class="step-circle-back">
@@ -227,7 +228,7 @@
                     <p>Our team arrives at your building and scans your inventory.</p>
                 </div>
                 <div class="step reveal reveal-delay-3">
-                    <div class="step-circle-container">
+                    <div class="step-circle-container" role="button" tabindex="0" aria-label="Step 3: Get items back">
                         <div class="step-circle-flipper">
                             <div class="step-circle-front">3</div>
                             <div class="step-circle-back">
@@ -304,18 +305,6 @@
         </div>
     </section>
 
-    <!-- SERVICE AREA CALLOUT -->
-    <section class="section bg-white service-area-callout">
-        <div class="container" style="text-align: center;">
-            <div style="display: inline-block; background: rgba(14, 111, 106, 0.1); padding: 8px 16px; border-radius: 100px; margin-bottom: 24px;">
-                <span style="color: var(--accent-teal); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;">Serving Hudson County</span>
-            </div>
-            <h3 style="color: var(--deep-teal); margin-bottom: 12px; font-size: 1.75rem;">Available in 13+ ZIP Codes</h3>
-            <p style="color: var(--text-secondary); margin-bottom: 24px; max-width: 500px; margin-left: auto; margin-right: auto; font-size: 1.05rem;">Hoboken, Jersey City, Weehawken, Union City, North Bergen, Edgewater, and more.</p>
-            <p style="color: var(--text-muted); font-size: 0.9rem;">Outside our area? <a href="#signup" style="color: var(--deep-teal); font-weight: 500; text-decoration: underline;">Join the waitlist</a>—we're expanding soon.</p>
-        </div>
-    </section>
-
     <!-- WHY WE'RE DIFFERENT - ZIG-ZAG FEATURES -->
     <section id="features" class="features-zigzag-section">
         <div class="container">
@@ -349,7 +338,7 @@
                     <p>No truck rentals. No storage unit trips. No fighting for elevator time on moving day. Schedule pickups and returns through the portal—we handle the rest.</p>
                     <div class="feature-highlight">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        48-hour scheduling windows
+                        Schedule up to 365 days in advance
                     </div>
                 </div>
             </div>
@@ -402,7 +391,7 @@
                         </svg>
                     </div>
                     <h3>Access Without the Trip</h3>
-                    <p>Browse your digital inventory from anywhere. See photos of everything stored. Schedule returns days or weeks ahead—timed to your life, not ours.</p>
+                    <p>Browse your digital inventory from anywhere. View your item photos and details anytime. Schedule returns days, weeks, or months ahead—timed to your life, not ours.</p>
                     <div class="feature-highlight">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
                         Your items, a tap away
@@ -521,30 +510,13 @@
         </div>
     </section>
 
-    <!-- SERVICE AREA -->
-    <section class="section bg-alabaster service-area">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Service Area</span>
-                <h2>Serving Hoboken, Jersey City, and Weehawken.</h2>
-                <p>More space than the city, but never quite enough. We bring storage to you—no trips, no hassle.</p>
-            </div>
-            <div class="service-area-cities">
-                <span class="service-city">Hoboken</span>
-                <span class="service-city">Jersey City</span>
-                <span class="service-city">Weehawken</span>
-            </div>
-            <p class="text-center text-muted" style="margin-top: 24px;">Outside our area? Join the waitlist—we'll notify you as we expand.</p>
-        </div>
-    </section>
-
     <!-- DIGITAL INVENTORY -->
     <section class="section bg-white">
         <div class="container">
             <div class="section-header">
                 <span class="section-label">Digital Inventory</span>
                 <h2>Every item, easy to find.</h2>
-                <p>Browse your inventory from anywhere. Every item is photographed, cataloged, and ready for return delivery as needed.</p>
+                <p>Add item details and photos in your portal. At pickup, we scan items for secure tracking. Browse your inventory from anywhere and schedule returns when you need them.</p>
             </div>
             <div class="text-center">
                 <p style="font-size: 3rem; margin-bottom: 8px;">📱</p>
@@ -580,7 +552,7 @@
                         </svg>
                     </button>
                     <div class="faq-answer">
-                        <p>Returns are delivered within 48 hours of your request through the portal.</p>
+                        <p>Schedule returns with a minimum 48-hour lead time. You can book up to 365 days in advance—perfect for planning seasonal rotations or holidays.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -857,25 +829,47 @@
             }
         });
 
-        // Auto-flip step circles when section comes into view (mobile enhancement)
+        // Flip cards: click/tap toggle + auto-flip on scroll
         const stepCircles = document.querySelectorAll('.step-circle-container');
-        if (stepCircles.length > 0 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            const stepObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // Stagger the flip animation with natural timing
-                        stepCircles.forEach((circle, index) => {
-                            setTimeout(() => {
-                                circle.classList.add('flipped');
-                            }, 150 + (index * 250)); // Initial 150ms delay, then 250ms between each
-                        });
-                        stepObserver.disconnect(); // Only trigger once
-                    }
-                });
-            }, { threshold: 0.25, rootMargin: '0px 0px -30px 0px' });
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-            // Observe the first step circle
-            stepObserver.observe(stepCircles[0]);
+        // Click/tap handler for manual toggle
+        stepCircles.forEach((circle) => {
+            circle.addEventListener('click', () => {
+                if (reducedMotion) return;
+                circle.classList.toggle('flipped');
+            });
+
+            // Keyboard accessibility: Enter/Space to toggle
+            circle.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    if (reducedMotion) return;
+                    circle.classList.toggle('flipped');
+                }
+            });
+        });
+
+        // Auto-flip when How It Works section enters view (subtle reveal)
+        if (stepCircles.length > 0 && !reducedMotion) {
+            const howItWorksSection = document.querySelector('#how-it-works');
+            if (howItWorksSection) {
+                const stepObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Stagger the flip animation
+                            stepCircles.forEach((circle, index) => {
+                                setTimeout(() => {
+                                    circle.classList.add('flipped');
+                                }, 200 + (index * 300));
+                            });
+                            stepObserver.disconnect();
+                        }
+                    });
+                }, { threshold: 0.4 });
+
+                stepObserver.observe(howItWorksSection);
+            }
         }
 
         // FAQ accordion
