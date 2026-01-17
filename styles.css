@@ -920,7 +920,14 @@ body.nav-open {
     transform-style: preserve-3d;
 }
 
-.step-circle-container:hover .step-circle-flipper,
+/* Hover flip only on devices that support hover (not touch) */
+@media (hover: hover) {
+    .step-circle-container:hover .step-circle-flipper {
+        transform: rotateY(180deg);
+    }
+}
+
+/* Class-based flip always works (touch + click) */
 .step-circle-container.flipped .step-circle-flipper {
     transform: rotateY(180deg);
 }
