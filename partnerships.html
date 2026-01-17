@@ -89,6 +89,19 @@
             box-shadow: 0 8px 24px rgba(107, 78, 61, 0.25);
         }
 
+        /* Partnership layout */
+        .partnership-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+        }
+
+        .tier-grid-compact {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
         /* Partnership tier cards */
         .tier-grid {
             display: grid;
@@ -144,8 +157,78 @@
             line-height: 1.6;
         }
 
-        /* NOT require section - critical prominence */
-        .not-require-section {
+        /* Portal feature highlight (in partnership section) */
+        .portal-feature-highlight {
+            background: var(--deep-teal);
+            border-radius: 16px;
+            padding: 48px;
+            color: var(--white);
+        }
+
+        .portal-feature-header {
+            margin-bottom: 32px;
+        }
+
+        .portal-feature-header .section-label {
+            color: var(--sv-accent-teal);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .portal-feature-header h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--white);
+        }
+
+        .portal-feature-header p {
+            color: rgba(224, 225, 221, 0.7);
+            font-size: 1rem;
+            line-height: 1.6;
+            max-width: 700px;
+        }
+
+        .portal-feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .portal-feature-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .portal-feature-icon-sm {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        .portal-feature-icon-sm svg {
+            width: 20px;
+            height: 20px;
+            color: var(--sv-accent-teal);
+        }
+
+        .portal-feature-item h4 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--white);
+        }
+
+        .portal-feature-item p {
+            font-size: 0.8125rem;
+            color: rgba(224, 225, 221, 0.5);
+            line-height: 1.5;
+        }
+
+        /* Zero requirements section */
+        .zero-requirements-section {
             background: var(--parchment);
             border: 2px solid var(--sv-accent-teal);
             border-radius: 16px;
@@ -153,34 +236,34 @@
             margin: 48px 0;
         }
 
-        .not-require-section h2 {
+        .zero-requirements-section h2 {
             color: var(--deep-teal);
-            margin-bottom: 24px;
+            margin-bottom: 32px;
+            font-size: 1.75rem;
         }
 
-        .not-require-grid {
+        .zero-requirements-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px 48px;
         }
 
-        .not-require-item {
+        .zero-requirements-list li {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 12px 16px;
-            background: var(--white);
-            border-radius: 8px;
-        }
-
-        .not-require-item svg {
-            flex-shrink: 0;
-            color: var(--sv-accent-teal);
-        }
-
-        .not-require-item span {
+            gap: 16px;
+            font-size: 1rem;
             font-weight: 500;
             color: var(--deep-teal);
+        }
+
+        .zero-requirements-list .req-icon {
+            color: var(--sv-accent-teal);
+            font-weight: 600;
+            font-size: 1.25rem;
         }
 
         /* How it works steps */
@@ -306,24 +389,39 @@
         @media (max-width: 768px) {
             /* Grids stack to single column */
             .tier-grid,
+            .tier-grid-compact,
             .audience-grid,
             .faq-grid,
             .ops-steps {
                 grid-template-columns: 1fr;
             }
 
-            /* Not-require grid: 2 columns on tablet, 1 on phone */
-            .not-require-grid {
+            .portal-feature-grid {
                 grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .portal-feature-highlight {
+                padding: 32px 24px;
+            }
+
+            .portal-feature-header h3 {
+                font-size: 1.25rem;
+            }
+
+            /* Zero requirements list: single column on mobile */
+            .zero-requirements-list {
+                grid-template-columns: 1fr;
+                gap: 12px;
             }
 
             /* Reduce padding on feature box */
-            .not-require-section {
+            .zero-requirements-section {
                 padding: 24px;
                 margin: 24px 0;
             }
 
-            .not-require-section h2 {
+            .zero-requirements-section h2 {
                 font-size: 1.5rem;
                 line-height: 1.3;
             }
@@ -390,13 +488,9 @@
 
         /* Small phones (375px) */
         @media (max-width: 390px) {
-            .not-require-section {
+            .zero-requirements-section {
                 padding: 20px;
                 border-radius: 12px;
-            }
-
-            .not-require-item {
-                padding: 10px 12px;
             }
 
             .tier-card {
@@ -410,12 +504,12 @@
 
         /* Tablet breakpoint (768px) - 2 column grids */
         @media (min-width: 481px) and (max-width: 768px) {
-            .not-require-grid {
+            .zero-requirements-list {
                 grid-template-columns: repeat(2, 1fr);
             }
 
             .tier-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr;
             }
 
             .ops-steps {
@@ -500,180 +594,11 @@
             }
         }
 
-        /* ===== PORTAL INTEGRATION SECTION ===== */
-        .portal-integration-section {
-            padding: 96px 0;
-            background: var(--deep-teal);
-            color: var(--white);
-            overflow: hidden;
-            position: relative;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .portal-integration-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 96px;
-            align-items: center;
-        }
-
-        .portal-integration-content .section-label {
-            color: var(--sv-accent-teal);
-            margin-bottom: 32px;
-        }
-
-        .portal-integration-content h2 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 40px;
-            letter-spacing: -0.02em;
-            line-height: 1.2;
-        }
-
-        .portal-integration-content h2 em {
-            font-style: italic;
-            font-weight: 400;
-        }
-
-        .portal-integration-content > p {
-            color: rgba(224, 225, 221, 0.6);
-            font-size: 1.125rem;
-            line-height: 1.7;
-            font-weight: 300;
-            margin-bottom: 56px;
-        }
-
-        .portal-features {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-        }
-
-        .portal-feature {
-            display: flex;
-            gap: 24px;
-            align-items: flex-start;
-        }
-
-        .portal-feature-icon {
-            padding: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: border-color 0.5s ease;
-        }
-
-        .portal-feature-icon svg {
-            width: 20px;
-            height: 20px;
-            color: var(--sv-accent-teal);
-        }
-
-        @media (hover: hover) {
-            .portal-feature:hover .portal-feature-icon {
-                border-color: var(--sv-accent-teal);
-            }
-        }
-
-        .portal-feature-content h3 {
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            margin-bottom: 8px;
-        }
-
-        .portal-feature-content p {
-            font-size: 0.6875rem;
-            color: rgba(224, 225, 221, 0.4);
-            line-height: 1.6;
-            max-width: 360px;
-        }
-
-        /* Code mockup */
-        .portal-code-wrapper {
-            position: relative;
-        }
-
-        .portal-code-container {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 8px;
-            border-radius: 8px;
-            backdrop-filter: blur(12px);
-        }
-
-        .portal-code-block {
-            background: var(--deep-teal);
-            padding: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
-            font-size: 0.6875rem;
-            line-height: 1.8;
-        }
-
-        .portal-code-block .code-comment {
-            color: rgba(255, 255, 255, 0.2);
-        }
-
-        .portal-code-block .code-keyword {
-            color: var(--white);
-        }
-
-        .portal-code-block .code-accent {
-            color: rgba(14, 111, 106, 0.8);
-        }
-
-        .portal-code-block .code-indent {
-            padding-left: 24px;
-        }
-
-        .portal-code-corner {
-            position: absolute;
-            top: -24px;
-            right: -24px;
-            width: 96px;
-            height: 96px;
-            border-top: 1px solid rgba(14, 111, 106, 0.2);
-            border-right: 1px solid rgba(14, 111, 106, 0.2);
-            pointer-events: none;
-        }
-
-        /* Portal Integration responsive */
-        @media (max-width: 1024px) {
-            .portal-integration-grid {
-                gap: 48px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .portal-integration-section {
-                padding: 48px 0;
-            }
-            .portal-integration-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            .portal-integration-content h2 {
-                font-size: 1.75rem;
-            }
-            .portal-integration-content > p {
-                font-size: 1rem;
-                margin-bottom: 40px;
-            }
-            .portal-code-block {
-                padding: 24px;
-                font-size: 0.625rem;
-            }
-            .portal-code-corner {
-                display: none;
-            }
-        }
-
         /* Reduced motion for new sections */
         @media (prefers-reduced-motion: reduce) {
             .core-principles-card,
             .core-principles-card .card-icon,
-            .portal-feature-icon {
+            .portal-feature-icon-sm {
                 transition: none;
             }
         }
@@ -807,10 +732,6 @@
             transition: transform var(--transition-normal), box-shadow var(--transition-normal);
         }
 
-        .not-require-item {
-            transition: transform var(--transition-normal), background-color var(--transition-normal);
-        }
-
         @media (hover: hover) {
             .audience-card:hover {
                 transform: translateY(-4px);
@@ -821,18 +742,12 @@
                 transform: translateY(-4px);
                 box-shadow: 0 12px 24px rgba(33, 60, 71, 0.12);
             }
-
-            .not-require-item:hover {
-                transform: translateX(4px);
-                background-color: var(--parchment);
-            }
         }
 
         /* Disable hover transforms for reduced motion */
         @media (prefers-reduced-motion: reduce) {
             .audience-card,
-            .benefit-card,
-            .not-require-item {
+            .benefit-card {
                 transition: none;
             }
         }
@@ -981,7 +896,7 @@
     <!-- HERO -->
     <section class="page-hero">
         <div class="container">
-            <h1>A White-Glove Storage Amenity for Modern Buildings</h1>
+            <h1>A White-Glove Storage Amenity to Elevate the Resident Amenity Package</h1>
             <p>Premium pickup-and-delivery storage that enhances resident experience with zero operational burden on your team.</p>
         </div>
     </section>
@@ -1011,49 +926,19 @@
         </div>
     </section>
 
-    <!-- WHAT THIS DOES NOT REQUIRE - CRITICAL SECTION -->
+    <!-- ZERO REQUIREMENTS SECTION -->
     <section class="section bg-alabaster">
         <div class="container">
-            <div class="not-require-section fade-in-section">
-                <h2>What This Does NOT Require From Your Team</h2>
-                <div class="not-require-grid">
-                    <div class="not-require-item">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 6L6 18M6 6l12 12"/>
-                        </svg>
-                        <span>No storage rooms</span>
-                    </div>
-                    <div class="not-require-item">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 6L6 18M6 6l12 12"/>
-                        </svg>
-                        <span>No construction or footprint</span>
-                    </div>
-                    <div class="not-require-item">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 6L6 18M6 6l12 12"/>
-                        </svg>
-                        <span>No staff training</span>
-                    </div>
-                    <div class="not-require-item">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 6L6 18M6 6l12 12"/>
-                        </svg>
-                        <span>No elevator reservations</span>
-                    </div>
-                    <div class="not-require-item">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 6L6 18M6 6l12 12"/>
-                        </svg>
-                        <span>No billing involvement</span>
-                    </div>
-                    <div class="not-require-item">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 6L6 18M6 6l12 12"/>
-                        </svg>
-                        <span>No resident support burden</span>
-                    </div>
-                </div>
+            <div class="zero-requirements-section fade-in-section">
+                <h2>Zero Requirements From Your Team</h2>
+                <ul class="zero-requirements-list">
+                    <li><span class="req-icon">—</span> No storage rooms needed</li>
+                    <li><span class="req-icon">—</span> No construction or footprint</li>
+                    <li><span class="req-icon">—</span> No staff training required</li>
+                    <li><span class="req-icon">—</span> No elevator reservations</li>
+                    <li><span class="req-icon">—</span> No billing involvement</li>
+                    <li><span class="req-icon">—</span> No resident support burden</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -1104,33 +989,63 @@
         <div class="container">
             <div class="section-header fade-in-section">
                 <span class="section-label">Partnership Options</span>
-                <h2>Flexible engagement models</h2>
-                <p>Choose the partnership level that works for your property. From simple referral to deep integration.</p>
+                <h2>Two Ways to Partner</h2>
+                <p>Choose the engagement model that fits your property. Both include seamless portal integration.</p>
             </div>
-            <div class="tier-grid fade-in-section fade-delay-1">
-                <div class="tier-card">
-                    <span class="tier-number">1</span>
-                    <h3 class="tier-name">Approved Partner Amenity</h3>
-                    <p class="tier-best-for">Best for: Buildings testing resident interest</p>
-                    <p class="tier-description">List Storage Valet as an approved vendor. We provide marketing materials for your amenity packet. Residents sign up directly with us at standard rates. No cost to the building.</p>
+
+            <div class="partnership-layout fade-in-section fade-delay-1">
+                <!-- Two Partnership Tiers -->
+                <div class="tier-grid-compact">
+                    <div class="tier-card">
+                        <span class="tier-number">1</span>
+                        <h3 class="tier-name">Approved Partner Amenity</h3>
+                        <p class="tier-best-for">Best for: Buildings testing resident interest</p>
+                        <p class="tier-description">List Storage Valet as an approved vendor. We provide marketing materials for your amenity packet. Residents sign up directly with us at standard rates. No cost to the building.</p>
+                    </div>
+                    <div class="tier-card">
+                        <span class="tier-number">2</span>
+                        <h3 class="tier-name">Sponsored Membership</h3>
+                        <p class="tier-best-for">Best for: Luxury buildings offering premium amenities</p>
+                        <p class="tier-description">Co-branded experience with priority scheduling and move-in coordination. Building covers a portion of resident subscription cost, dramatically increasing adoption. Position storage as a true building amenity.</p>
+                    </div>
                 </div>
-                <div class="tier-card">
-                    <span class="tier-number">2</span>
-                    <h3 class="tier-name">Preferred Partner Plus</h3>
-                    <p class="tier-best-for">Best for: Buildings wanting exclusive benefits</p>
-                    <p class="tier-description">Co-branded experience with your building. Residents receive priority scheduling and move-in coordination. Optional revenue share available for high-volume properties.</p>
-                </div>
-                <div class="tier-card">
-                    <span class="tier-number">3</span>
-                    <h3 class="tier-name">Sponsored Membership</h3>
-                    <p class="tier-best-for">Best for: Luxury buildings subsidizing amenities</p>
-                    <p class="tier-description">Building covers a portion of resident subscription cost. Increases adoption dramatically. Position storage as a true building amenity rather than an add-on service.</p>
-                </div>
-                <div class="tier-card">
-                    <span class="tier-number">4</span>
-                    <h3 class="tier-name">Portal Integration</h3>
-                    <p class="tier-best-for">Best for: Tech-forward properties with resident apps</p>
-                    <p class="tier-description">Staged integration into your resident portal. Starts with deep linking, can progress to SSO and eventually full API embedding. Residents never leave your ecosystem.</p>
+
+                <!-- Portal Integration Feature -->
+                <div class="portal-feature-highlight">
+                    <div class="portal-feature-header">
+                        <span class="section-label">Included With All Partnerships</span>
+                        <h3>Seamless Portal Integration</h3>
+                        <p>We eliminate friction by embedding natively into your existing resident portal. From registration to pickup and delivery bookings, residents never have to leave your building's branded app.</p>
+                    </div>
+                    <div class="portal-feature-grid">
+                        <div class="portal-feature-item">
+                            <div class="portal-feature-icon-sm">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                    <line x1="9" y1="3" x2="9" y2="21"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Native Registration</h4>
+                                <p>Residents activate their storage account during the building move-in flow with a single click.</p>
+                            </div>
+                        </div>
+                        <div class="portal-feature-item">
+                            <div class="portal-feature-icon-sm">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2"/>
+                                    <line x1="16" y1="2" x2="16" y2="6"/>
+                                    <line x1="8" y1="2" x2="8" y2="6"/>
+                                    <line x1="3" y1="10" x2="21" y2="10"/>
+                                    <path d="M9 16l2 2 4-4"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>In-App Bookings</h4>
+                                <p>Schedule pickups or retrievals directly within the property's service dashboard. No new accounts required.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1194,7 +1109,7 @@
                     <p>We transport, photograph, and catalog each item. Residents manage their inventory from their phone.</p>
                 </div>
                 <div class="ops-step fade-in-section fade-delay-4">
-                    <div class="ops-step-circle-container" role="button" tabindex="0" aria-label="Step 4: Delivery on Demand">
+                    <div class="ops-step-circle-container" role="button" tabindex="0" aria-label="Step 4: Delivery When Needed">
                         <div class="ops-step-flipper">
                             <div class="ops-step-front">4</div>
                             <div class="ops-step-back">
@@ -1205,7 +1120,7 @@
                             </div>
                         </div>
                     </div>
-                    <h3>Delivery on Demand</h3>
+                    <h3>Delivery When Needed</h3>
                     <p>Resident requests items back. We deliver within 48 hours directly to their unit. Simple as that.</p>
                 </div>
             </div>
@@ -1335,73 +1250,11 @@
         </div>
     </section>
 
-    <!-- PORTAL INTEGRATION -->
-    <section class="portal-integration-section">
-        <div class="container">
-            <div class="portal-integration-grid">
-                <div class="portal-integration-content fade-in-section">
-                    <span class="section-label">Ecosystem Synergy</span>
-                    <h2>Seamless <em>Portal Integration</em></h2>
-                    <p>We eliminate friction by embedding natively into your existing resident portal. From registration to pickup and delivery bookings, residents never have to leave your building's branded app.</p>
-
-                    <div class="portal-features">
-                        <div class="portal-feature">
-                            <div class="portal-feature-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="3" y="3" width="18" height="18" rx="2"/>
-                                    <line x1="9" y1="3" x2="9" y2="21"/>
-                                </svg>
-                            </div>
-                            <div class="portal-feature-content">
-                                <h3>Native Registration</h3>
-                                <p>Residents activate their storage account during the building move-in flow with a single click.</p>
-                            </div>
-                        </div>
-                        <div class="portal-feature">
-                            <div class="portal-feature-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="3" y="4" width="18" height="18" rx="2"/>
-                                    <line x1="16" y1="2" x2="16" y2="6"/>
-                                    <line x1="8" y1="2" x2="8" y2="6"/>
-                                    <line x1="3" y1="10" x2="21" y2="10"/>
-                                    <path d="M9 16l2 2 4-4"/>
-                                </svg>
-                            </div>
-                            <div class="portal-feature-content">
-                                <h3>In-App Bookings</h3>
-                                <p>Schedule pickups or retrievals directly within the property's service dashboard. No new accounts required.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portal-code-wrapper fade-in-section fade-delay-1">
-                    <div class="portal-code-container">
-                        <div class="portal-code-block">
-                            <p class="code-comment">// Resident Portal Hook Integration</p>
-                            <p><span class="code-keyword">const</span> valet = <span class="code-keyword">new</span> <span class="code-accent">StorageValet</span>({</p>
-                            <p class="code-indent">propertyId: <span class="code-keyword">"SECURE_ASSET_UUID"</span>,</p>
-                            <p class="code-indent">integrationType: <span class="code-keyword">"PORTAL_NATIVE"</span>,</p>
-                            <p class="code-indent code-comment">// Auto-provisioning for new leases</p>
-                            <p class="code-indent">syncLeaseCycle: <span class="code-keyword">true</span>,</p>
-                            <p class="code-indent">residentUI: <span class="code-keyword">"FULL_EMBED"</span></p>
-                            <p>});</p>
-                            <p style="margin-top: 16px;">valet.on(<span class="code-keyword">'service_request'</span>, (data) => {</p>
-                            <p class="code-indent"><span class="code-accent">syncWithLoadingDock</span>(data.timeSlot);</p>
-                            <p>});</p>
-                        </div>
-                    </div>
-                    <div class="portal-code-corner"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- CTA SECTION -->
     <section class="partnerships-cta">
         <div class="container">
             <div class="fade-in-section">
-                <h2>Ready to explore a building partnership?</h2>
+                <h2>Ready to explore implementing Storage Valet at your property or have questions to ask?</h2>
                 <div class="cta-buttons">
                     <a id="partner-calendly" href="https://calendly.com/zach-mystoragevalet/storage-valet-building-partnership-discussion-30-min" target="_blank" rel="noopener noreferrer" class="btn btn-action">Schedule an on-site meeting</a>
                     <a id="partner-email" href="mailto:partnerships@mystoragevalet.com" class="btn btn-outline">Email partnerships@mystoragevalet.com</a>
