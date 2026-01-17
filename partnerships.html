@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>document.documentElement.classList.add('js');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Partner with Storage Valet to offer premium storage amenities to your residents. Zero cost, zero footprint, zero staff burden. A white-glove service for modern buildings.">
@@ -421,6 +422,250 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+
+        /* ===== FADE-IN ANIMATIONS (JS fail-safe) ===== */
+        /* Visible by default (fail-safe if JS disabled) */
+        .fade-in-section {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* Only hide when JS is enabled */
+        html.js .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        html.js .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* Stagger delays */
+        .fade-delay-1 { transition-delay: 0.1s; }
+        .fade-delay-2 { transition-delay: 0.2s; }
+        .fade-delay-3 { transition-delay: 0.3s; }
+        .fade-delay-4 { transition-delay: 0.4s; }
+
+        /* Reduced motion: show immediately */
+        @media (prefers-reduced-motion: reduce) {
+            html.js .fade-in-section {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+
+        /* ===== 3D FLIP CARDS FOR OPS STEPS ===== */
+        .ops-step-circle-container {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 16px;
+            perspective: 1000px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .ops-step-circle-container:focus-visible {
+            outline: 2px solid var(--sv-accent-teal);
+            outline-offset: 4px;
+            border-radius: 50%;
+        }
+
+        .ops-step-flipper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        /* Hover flip only on devices that support hover */
+        @media (hover: hover) {
+            .ops-step-circle-container:hover .ops-step-flipper {
+                transform: rotateY(180deg);
+            }
+        }
+
+        /* Class-based flip for touch/click */
+        .ops-step-circle-container.flipped .ops-step-flipper {
+            transform: rotateY(180deg);
+        }
+
+        .ops-step-front,
+        .ops-step-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 16px rgba(33, 60, 71, 0.08);
+        }
+
+        .ops-step-front {
+            background-color: var(--sv-accent-teal);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            z-index: 2;
+        }
+
+        .ops-step-back {
+            background-color: var(--deep-teal);
+            color: var(--white);
+            transform: rotateY(180deg);
+        }
+
+        .ops-step-back svg {
+            width: 36px;
+            height: 36px;
+            stroke-width: 2;
+        }
+
+        /* Reduced motion: disable flip transforms */
+        @media (prefers-reduced-motion: reduce) {
+            .ops-step-flipper {
+                transition: none;
+            }
+            @media (hover: hover) {
+                .ops-step-circle-container:hover .ops-step-flipper {
+                    transform: none;
+                }
+            }
+            .ops-step-circle-container.flipped .ops-step-flipper {
+                transform: none;
+            }
+        }
+
+        /* ===== CARD HOVER EFFECTS ===== */
+        .audience-card {
+            transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+        }
+
+        .benefit-card {
+            transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+        }
+
+        .not-require-item {
+            transition: transform var(--transition-normal), background-color var(--transition-normal);
+        }
+
+        @media (hover: hover) {
+            .audience-card:hover {
+                transform: translateY(-4px);
+                box-shadow: var(--shadow-md);
+            }
+
+            .benefit-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 12px 24px rgba(33, 60, 71, 0.12);
+            }
+
+            .not-require-item:hover {
+                transform: translateX(4px);
+                background-color: var(--parchment);
+            }
+        }
+
+        /* Disable hover transforms for reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            .audience-card,
+            .benefit-card,
+            .not-require-item {
+                transition: none;
+            }
+        }
+
+        /* ===== FAQ ACCORDION ===== */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* Override base .faq-item padding for accordion layout */
+        .faq-list .faq-item {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 0; /* Reset padding - handled by internal elements */
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: box-shadow var(--transition-normal);
+        }
+
+        @media (hover: hover) {
+            .faq-item:hover {
+                box-shadow: var(--shadow-md);
+            }
+        }
+
+        .faq-question {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--deep-teal);
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            gap: 16px;
+            min-height: 48px;
+        }
+
+        .faq-question:focus-visible {
+            outline: 2px solid var(--sv-accent-teal);
+            outline-offset: -2px;
+        }
+
+        .faq-question svg {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            color: var(--sv-accent-teal);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question svg {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-answer p {
+            padding: 0 24px 20px;
+            font-size: 0.9375rem;
+            color: var(--sv-text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        /* Reduced motion: instant accordion */
+        @media (prefers-reduced-motion: reduce) {
+            .faq-question svg,
+            .faq-answer {
+                transition: none;
+            }
+        }
     </style>
 </head>
 <body class="partnerships">
@@ -446,7 +691,7 @@
                         <a href="/#signup" class="btn btn-primary btn-sm">Get Started</a>
                     </div>
                 </nav>
-                <button class="mobile-menu-btn" aria-label="Open navigation menu">
+                <button type="button" class="mobile-menu-btn" aria-label="Open navigation menu">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M3 12h18M3 6h18M3 18h18"/>
                     </svg>
@@ -459,7 +704,7 @@
     <div class="mobile-nav" id="mobile-nav">
         <div class="mobile-nav-header">
             <span class="logo-text">Storage Valet</span>
-            <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
+            <button type="button" class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M18 6L6 18M6 6l12 12"/>
                 </svg>
@@ -489,12 +734,12 @@
     <!-- WHO THIS IS FOR -->
     <section class="section bg-white">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header fade-in-section">
                 <span class="section-label">Who This Is For</span>
                 <h2>Property teams who want more for their residents</h2>
                 <p>Storage Valet works with forward-thinking properties that value premium amenities without the operational complexity.</p>
             </div>
-            <div class="audience-grid">
+            <div class="audience-grid fade-in-section fade-delay-1">
                 <div class="audience-card">
                     <h3>Property Managers</h3>
                     <p>Add a differentiating amenity to your building without adding work to your plate. We handle everything.</p>
@@ -514,7 +759,7 @@
     <!-- WHAT THIS DOES NOT REQUIRE - CRITICAL SECTION -->
     <section class="section bg-alabaster">
         <div class="container">
-            <div class="not-require-section">
+            <div class="not-require-section fade-in-section">
                 <h2>What This Does NOT Require From Your Team</h2>
                 <div class="not-require-grid">
                     <div class="not-require-item">
@@ -561,12 +806,12 @@
     <!-- PARTNERSHIP OPTIONS -->
     <section class="section bg-parchment">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header fade-in-section">
                 <span class="section-label">Partnership Options</span>
                 <h2>Flexible engagement models</h2>
                 <p>Choose the partnership level that works for your property. From simple referral to deep integration.</p>
             </div>
-            <div class="tier-grid">
+            <div class="tier-grid fade-in-section fade-delay-1">
                 <div class="tier-card">
                     <span class="tier-number">1</span>
                     <h3 class="tier-name">Approved Partner Amenity</h3>
@@ -596,30 +841,74 @@
     </section>
 
     <!-- HOW IT WORKS OPERATIONALLY -->
-    <section class="section bg-white">
+    <section class="section bg-white" id="how-it-works-ops">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header fade-in-section">
                 <span class="section-label">How It Works</span>
                 <h2>Simple operations, premium experience</h2>
             </div>
             <div class="ops-steps">
-                <div class="ops-step">
-                    <div class="ops-step-number">1</div>
+                <div class="ops-step fade-in-section fade-delay-1">
+                    <div class="ops-step-circle-container" role="button" tabindex="0" aria-label="Step 1: Resident Signs Up">
+                        <div class="ops-step-flipper">
+                            <div class="ops-step-front">1</div>
+                            <div class="ops-step-back">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/>
+                                    <rect x="9" y="3" width="6" height="4" rx="1"/>
+                                    <path d="M9 14l2 2 4-4"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
                     <h3>Resident Signs Up</h3>
                     <p>Resident subscribes directly through our portal or your building's referral. We handle all billing and onboarding.</p>
                 </div>
-                <div class="ops-step">
-                    <div class="ops-step-number">2</div>
+                <div class="ops-step fade-in-section fade-delay-2">
+                    <div class="ops-step-circle-container" role="button" tabindex="0" aria-label="Step 2: We Schedule Pickup">
+                        <div class="ops-step-flipper">
+                            <div class="ops-step-front">2</div>
+                            <div class="ops-step-back">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="1" y="3" width="15" height="13" rx="2"/>
+                                    <path d="M16 8h4l3 3v5h-7V8z"/>
+                                    <circle cx="5.5" cy="18.5" r="2.5"/>
+                                    <circle cx="18.5" cy="18.5" r="2.5"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
                     <h3>We Schedule Pickup</h3>
                     <p>Resident requests a pickup through the app. We coordinate timing and arrive at their door. No elevator holds needed.</p>
                 </div>
-                <div class="ops-step">
-                    <div class="ops-step-number">3</div>
+                <div class="ops-step fade-in-section fade-delay-3">
+                    <div class="ops-step-circle-container" role="button" tabindex="0" aria-label="Step 3: Items in Storage">
+                        <div class="ops-step-flipper">
+                            <div class="ops-step-front">3</div>
+                            <div class="ops-step-back">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                                    <line x1="12" y1="22.08" x2="12" y2="12"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
                     <h3>Items in Storage</h3>
                     <p>We transport, photograph, and catalog each item. Residents manage their inventory from their phone.</p>
                 </div>
-                <div class="ops-step">
-                    <div class="ops-step-number">4</div>
+                <div class="ops-step fade-in-section fade-delay-4">
+                    <div class="ops-step-circle-container" role="button" tabindex="0" aria-label="Step 4: Delivery on Demand">
+                        <div class="ops-step-flipper">
+                            <div class="ops-step-front">4</div>
+                            <div class="ops-step-back">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="1 4 1 10 7 10"/>
+                                    <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
                     <h3>Delivery on Demand</h3>
                     <p>Resident requests items back. We deliver within 48 hours directly to their unit. Simple as that.</p>
                 </div>
@@ -630,12 +919,12 @@
     <!-- RESIDENT EXPERIENCE -->
     <section class="section bg-alabaster">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header fade-in-section">
                 <span class="section-label">Resident Experience</span>
                 <h2>What your residents actually get</h2>
                 <p>A concierge-level storage service that feels like a natural extension of building amenities.</p>
             </div>
-            <div class="benefits-grid">
+            <div class="benefits-grid fade-in-section fade-delay-1">
                 <div class="benefit-card">
                     <div class="benefit-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -675,34 +964,76 @@
     <!-- OPERATIONAL FAQS -->
     <section class="section bg-white">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header fade-in-section">
                 <span class="section-label">Operational FAQs</span>
                 <h2>Questions property teams ask</h2>
             </div>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <p class="faq-question">Will this disrupt elevator access?</p>
-                    <p class="faq-answer">No. We use standard passenger elevators during off-peak hours. Typical pickup takes 15-20 minutes. We coordinate timing to avoid move-in/out conflicts.</p>
+            <div class="faq-list fade-in-section fade-delay-1">
+                <div class="faq-item active">
+                    <button type="button" class="faq-question">
+                        Will this disrupt elevator access?
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No. We use standard passenger elevators during off-peak hours. Typical pickup takes 15-20 minutes. We coordinate timing to avoid move-in/out conflicts.</p>
+                    </div>
                 </div>
                 <div class="faq-item">
-                    <p class="faq-question">Does this require staff involvement?</p>
-                    <p class="faq-answer">Zero staff involvement. We handle all logistics, billing, and resident communication. Your team never touches a box or answers a support question.</p>
+                    <button type="button" class="faq-question">
+                        Does this require staff involvement?
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Zero staff involvement. We handle all logistics, billing, and resident communication. Your team never touches a box or answers a support question.</p>
+                    </div>
                 </div>
                 <div class="faq-item">
-                    <p class="faq-question">What about liability?</p>
-                    <p class="faq-answer">We carry comprehensive insurance. Items are covered from pickup to delivery. The building assumes no liability for resident belongings in our care.</p>
+                    <button type="button" class="faq-question">
+                        What about liability?
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We carry comprehensive insurance. Items are covered from pickup to delivery. The building assumes no liability for resident belongings in our care.</p>
+                    </div>
                 </div>
                 <div class="faq-item">
-                    <p class="faq-question">What does this cost the building?</p>
-                    <p class="faq-answer">Tier 1 and 2 partnerships have no building cost. Tier 3 (Sponsored) involves optional subsidy. We structure the agreement to your budget.</p>
+                    <button type="button" class="faq-question">
+                        What does this cost the building?
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Tier 1 and 2 partnerships have no building cost. Tier 3 (Sponsored) involves optional subsidy. We structure the agreement to your budget.</p>
+                    </div>
                 </div>
                 <div class="faq-item">
-                    <p class="faq-question">What happens at move-out?</p>
-                    <p class="faq-answer">Residents keep their subscription. If they move within our service area, we continue service at their new address. If they leave the area, we coordinate final delivery or storage transition.</p>
+                    <button type="button" class="faq-question">
+                        What happens at move-out?
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Residents keep their subscription. If they move within our service area, we continue service at their new address. If they leave the area, we coordinate final delivery or storage transition.</p>
+                    </div>
                 </div>
                 <div class="faq-item">
-                    <p class="faq-question">How quickly can we launch?</p>
-                    <p class="faq-answer">Tier 1 partnerships can launch within a week. We provide digital marketing assets and onboarding materials. No contracts longer than 12 months.</p>
+                    <button type="button" class="faq-question">
+                        How quickly can we launch?
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Tier 1 partnerships can launch within a week. We provide digital marketing assets and onboarding materials. No contracts longer than 12 months.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -711,10 +1042,12 @@
     <!-- CTA SECTION -->
     <section class="partnerships-cta">
         <div class="container">
-            <h2>Ready to explore a building partnership?</h2>
-            <div class="cta-buttons">
-                <a id="partner-calendly" href="https://calendly.com/zach-mystoragevalet/storage-valet-building-partnership-discussion-30-min" target="_blank" rel="noopener noreferrer" class="btn btn-action">Schedule an on-site meeting</a>
-                <a id="partner-email" href="mailto:partnerships@mystoragevalet.com" class="btn btn-outline">Email partnerships@mystoragevalet.com</a>
+            <div class="fade-in-section">
+                <h2>Ready to explore a building partnership?</h2>
+                <div class="cta-buttons">
+                    <a id="partner-calendly" href="https://calendly.com/zach-mystoragevalet/storage-valet-building-partnership-discussion-30-min" target="_blank" rel="noopener noreferrer" class="btn btn-action">Schedule an on-site meeting</a>
+                    <a id="partner-email" href="mailto:partnerships@mystoragevalet.com" class="btn btn-outline">Email partnerships@mystoragevalet.com</a>
+                </div>
             </div>
         </div>
     </section>
@@ -819,6 +1152,89 @@
         // Close nav when clicking a link
         mobileNavLinks.forEach(link => {
             link.addEventListener('click', closeMobileNav);
+        });
+
+        // ===== FADE-IN ANIMATIONS =====
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        const fadeObserverOptions = {
+            root: null,
+            rootMargin: '0px 0px -50px 0px',
+            threshold: 0.15
+        };
+
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    fadeObserver.unobserve(entry.target);
+                }
+            });
+        }, fadeObserverOptions);
+
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            if (!reducedMotion) {
+                fadeObserver.observe(section);
+            } else {
+                section.classList.add('is-visible');
+            }
+        });
+
+        // ===== 3D FLIP CARDS =====
+        const stepCircles = document.querySelectorAll('.ops-step-circle-container');
+
+        // Click/tap handler for manual toggle
+        stepCircles.forEach((circle) => {
+            circle.addEventListener('click', () => {
+                if (reducedMotion) return;
+                circle.classList.toggle('flipped');
+            });
+
+            // Keyboard accessibility
+            circle.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    if (reducedMotion) return;
+                    circle.classList.toggle('flipped');
+                }
+            });
+        });
+
+        // Auto-flip when section enters view
+        if (stepCircles.length > 0 && !reducedMotion) {
+            const howItWorksSection = document.querySelector('#how-it-works-ops');
+            if (howItWorksSection) {
+                const stepObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            stepCircles.forEach((circle, index) => {
+                                setTimeout(() => {
+                                    circle.classList.add('flipped');
+                                }, 200 + (index * 300));
+                            });
+                            stepObserver.disconnect();
+                        }
+                    });
+                }, { threshold: 0.4 });
+
+                stepObserver.observe(howItWorksSection);
+            }
+        }
+
+        // ===== FAQ ACCORDION =====
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const isActive = item.classList.contains('active');
+
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
         });
     </script>
     <!-- Vercel Analytics -->
