@@ -18,6 +18,16 @@
             --sv-text-secondary: #4D5F63;  /* AA compliant on white + parchment */
         }
 
+        /* ===== BACKGROUND GRADIENTS (matching main landing page) ===== */
+        .partnerships .page-hero {
+            background: linear-gradient(180deg, var(--white) 0%, var(--parchment) 100%);
+        }
+
+        /* First content section blends from parchment */
+        .partnerships .section-fade-from-hero {
+            background: linear-gradient(180deg, var(--parchment) 0%, var(--white) 100%);
+        }
+
         /* Teal for section labels and links */
         .partnerships .section-label {
             color: var(--sv-accent-teal);
@@ -896,13 +906,13 @@
     <!-- HERO -->
     <section class="page-hero">
         <div class="container">
-            <h1>A White-Glove Storage Amenity to Elevate the Resident Amenity Package</h1>
+            <h1>Bespoke Resident Storage Partnerships</h1>
             <p>Premium pickup-and-delivery storage that enhances resident experience with zero operational burden on your team.</p>
         </div>
     </section>
 
     <!-- WHO THIS IS FOR -->
-    <section class="section bg-white">
+    <section class="section section-fade-from-hero">
         <div class="container">
             <div class="section-header fade-in-section">
                 <span class="section-label">Who This Is For</span>
@@ -922,23 +932,6 @@
                     <h3>Ownership Groups</h3>
                     <p>Increase resident satisfaction and retention. Storage consistently ranks among top-requested amenities.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ZERO REQUIREMENTS SECTION -->
-    <section class="section bg-alabaster">
-        <div class="container">
-            <div class="zero-requirements-section fade-in-section">
-                <h2>Zero Requirements From Your Team</h2>
-                <ul class="zero-requirements-list">
-                    <li><span class="req-icon">—</span> No storage rooms needed</li>
-                    <li><span class="req-icon">—</span> No construction or footprint</li>
-                    <li><span class="req-icon">—</span> No staff training required</li>
-                    <li><span class="req-icon">—</span> No elevator reservations</li>
-                    <li><span class="req-icon">—</span> No billing involvement</li>
-                    <li><span class="req-icon">—</span> No resident support burden</li>
-                </ul>
             </div>
         </div>
     </section>
@@ -1123,6 +1116,23 @@
                     <h3>Delivery When Needed</h3>
                     <p>Resident requests items back. We deliver within 48 hours directly to their unit. Simple as that.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZERO REQUIREMENTS SECTION -->
+    <section class="section bg-alabaster">
+        <div class="container">
+            <div class="zero-requirements-section fade-in-section">
+                <h2>Zero Requirements From Your Team</h2>
+                <ul class="zero-requirements-list">
+                    <li><span class="req-icon">—</span> No storage rooms needed</li>
+                    <li><span class="req-icon">—</span> No construction or footprint</li>
+                    <li><span class="req-icon">—</span> No staff training required</li>
+                    <li><span class="req-icon">—</span> No elevator reservations</li>
+                    <li><span class="req-icon">—</span> No billing involvement</li>
+                    <li><span class="req-icon">—</span> No resident support burden</li>
+                </ul>
             </div>
         </div>
     </section>
