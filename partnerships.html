@@ -423,6 +423,261 @@
             }
         }
 
+        /* ===== CORE PRINCIPLES SECTION ===== */
+        .core-principles-section {
+            padding: 80px 0;
+            background: var(--alabaster);
+        }
+
+        .core-principles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-top: 1px solid rgba(106, 127, 131, 0.3);
+            border-left: 1px solid rgba(106, 127, 131, 0.3);
+            background: var(--white);
+        }
+
+        .core-principles-card {
+            padding: 48px;
+            border-right: 1px solid rgba(106, 127, 131, 0.3);
+            border-bottom: 1px solid rgba(106, 127, 131, 0.3);
+            transition: background-color 0.5s ease;
+        }
+
+        @media (hover: hover) {
+            .core-principles-card:hover {
+                background-color: var(--parchment);
+            }
+        }
+
+        .core-principles-card .card-icon {
+            color: var(--sv-accent-teal);
+            margin-bottom: 32px;
+            transition: transform 0.3s ease;
+        }
+
+        @media (hover: hover) {
+            .core-principles-card:hover .card-icon {
+                transform: translateX(4px);
+            }
+        }
+
+        .core-principles-card h3 {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--deep-teal);
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        .core-principles-card p {
+            font-size: 0.875rem;
+            color: var(--sv-text-secondary);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* Core Principles responsive */
+        @media (max-width: 768px) {
+            .core-principles-section {
+                padding: 48px 0;
+            }
+            .core-principles-grid {
+                grid-template-columns: 1fr;
+            }
+            .core-principles-card {
+                padding: 32px;
+            }
+        }
+
+        @media (min-width: 481px) and (max-width: 768px) {
+            .core-principles-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            /* Last item spans full width if odd count */
+            .core-principles-card:last-child:nth-child(odd) {
+                grid-column: 1 / -1;
+            }
+        }
+
+        /* ===== PORTAL INTEGRATION SECTION ===== */
+        .portal-integration-section {
+            padding: 96px 0;
+            background: var(--deep-teal);
+            color: var(--white);
+            overflow: hidden;
+            position: relative;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .portal-integration-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 96px;
+            align-items: center;
+        }
+
+        .portal-integration-content .section-label {
+            color: var(--sv-accent-teal);
+            margin-bottom: 32px;
+        }
+
+        .portal-integration-content h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 40px;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .portal-integration-content h2 em {
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .portal-integration-content > p {
+            color: rgba(224, 225, 221, 0.6);
+            font-size: 1.125rem;
+            line-height: 1.7;
+            font-weight: 300;
+            margin-bottom: 56px;
+        }
+
+        .portal-features {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .portal-feature {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+        }
+
+        .portal-feature-icon {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: border-color 0.5s ease;
+        }
+
+        .portal-feature-icon svg {
+            width: 20px;
+            height: 20px;
+            color: var(--sv-accent-teal);
+        }
+
+        @media (hover: hover) {
+            .portal-feature:hover .portal-feature-icon {
+                border-color: var(--sv-accent-teal);
+            }
+        }
+
+        .portal-feature-content h3 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 8px;
+        }
+
+        .portal-feature-content p {
+            font-size: 0.6875rem;
+            color: rgba(224, 225, 221, 0.4);
+            line-height: 1.6;
+            max-width: 360px;
+        }
+
+        /* Code mockup */
+        .portal-code-wrapper {
+            position: relative;
+        }
+
+        .portal-code-container {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px;
+            border-radius: 8px;
+            backdrop-filter: blur(12px);
+        }
+
+        .portal-code-block {
+            background: var(--deep-teal);
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+            font-size: 0.6875rem;
+            line-height: 1.8;
+        }
+
+        .portal-code-block .code-comment {
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .portal-code-block .code-keyword {
+            color: var(--white);
+        }
+
+        .portal-code-block .code-accent {
+            color: rgba(14, 111, 106, 0.8);
+        }
+
+        .portal-code-block .code-indent {
+            padding-left: 24px;
+        }
+
+        .portal-code-corner {
+            position: absolute;
+            top: -24px;
+            right: -24px;
+            width: 96px;
+            height: 96px;
+            border-top: 1px solid rgba(14, 111, 106, 0.2);
+            border-right: 1px solid rgba(14, 111, 106, 0.2);
+            pointer-events: none;
+        }
+
+        /* Portal Integration responsive */
+        @media (max-width: 1024px) {
+            .portal-integration-grid {
+                gap: 48px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .portal-integration-section {
+                padding: 48px 0;
+            }
+            .portal-integration-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .portal-integration-content h2 {
+                font-size: 1.75rem;
+            }
+            .portal-integration-content > p {
+                font-size: 1rem;
+                margin-bottom: 40px;
+            }
+            .portal-code-block {
+                padding: 24px;
+                font-size: 0.625rem;
+            }
+            .portal-code-corner {
+                display: none;
+            }
+        }
+
+        /* Reduced motion for new sections */
+        @media (prefers-reduced-motion: reduce) {
+            .core-principles-card,
+            .core-principles-card .card-icon,
+            .portal-feature-icon {
+                transition: none;
+            }
+        }
+
         /* ===== FADE-IN ANIMATIONS (JS fail-safe) ===== */
         /* Visible by default (fail-safe if JS disabled) */
         .fade-in-section {
@@ -803,6 +1058,47 @@
         </div>
     </section>
 
+    <!-- CORE PRINCIPLES -->
+    <section class="core-principles-section">
+        <div class="container">
+            <div class="section-header fade-in-section" style="margin-bottom: 80px;">
+                <span class="section-label">Core Principles</span>
+                <h2>Operational Excellence</h2>
+            </div>
+            <div class="core-principles-grid fade-in-section fade-delay-1">
+                <div class="core-principles-card">
+                    <div class="card-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                        </svg>
+                    </div>
+                    <h3>Taut Logistics</h3>
+                    <p>Precision-timed pickups coordinated with your loading dock to ensure zero lobby disruption.</p>
+                </div>
+                <div class="core-principles-card">
+                    <div class="card-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                            <line x1="12" y1="22.08" x2="12" y2="12"/>
+                        </svg>
+                    </div>
+                    <h3>The Welcome Kit</h3>
+                    <p>Premium, co-branded moving totes delivered to residents before move-in day.</p>
+                </div>
+                <div class="core-principles-card">
+                    <div class="card-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3>Zero Liability</h3>
+                    <p>We are fully insured and handle all logistics. Your staff remains completely hands-off.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- PARTNERSHIP OPTIONS -->
     <section class="section bg-parchment">
         <div class="container">
@@ -1034,6 +1330,68 @@
                     <div class="faq-answer">
                         <p>Tier 1 partnerships can launch within a week. We provide digital marketing assets and onboarding materials. No contracts longer than 12 months.</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTAL INTEGRATION -->
+    <section class="portal-integration-section">
+        <div class="container">
+            <div class="portal-integration-grid">
+                <div class="portal-integration-content fade-in-section">
+                    <span class="section-label">Ecosystem Synergy</span>
+                    <h2>Seamless <em>Portal Integration</em></h2>
+                    <p>We eliminate friction by embedding natively into your existing resident portal. From registration to pickup and delivery bookings, residents never have to leave your building's branded app.</p>
+
+                    <div class="portal-features">
+                        <div class="portal-feature">
+                            <div class="portal-feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                    <line x1="9" y1="3" x2="9" y2="21"/>
+                                </svg>
+                            </div>
+                            <div class="portal-feature-content">
+                                <h3>Native Registration</h3>
+                                <p>Residents activate their storage account during the building move-in flow with a single click.</p>
+                            </div>
+                        </div>
+                        <div class="portal-feature">
+                            <div class="portal-feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2"/>
+                                    <line x1="16" y1="2" x2="16" y2="6"/>
+                                    <line x1="8" y1="2" x2="8" y2="6"/>
+                                    <line x1="3" y1="10" x2="21" y2="10"/>
+                                    <path d="M9 16l2 2 4-4"/>
+                                </svg>
+                            </div>
+                            <div class="portal-feature-content">
+                                <h3>In-App Bookings</h3>
+                                <p>Schedule pickups or retrievals directly within the property's service dashboard. No new accounts required.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portal-code-wrapper fade-in-section fade-delay-1">
+                    <div class="portal-code-container">
+                        <div class="portal-code-block">
+                            <p class="code-comment">// Resident Portal Hook Integration</p>
+                            <p><span class="code-keyword">const</span> valet = <span class="code-keyword">new</span> <span class="code-accent">StorageValet</span>({</p>
+                            <p class="code-indent">propertyId: <span class="code-keyword">"SECURE_ASSET_UUID"</span>,</p>
+                            <p class="code-indent">integrationType: <span class="code-keyword">"PORTAL_NATIVE"</span>,</p>
+                            <p class="code-indent code-comment">// Auto-provisioning for new leases</p>
+                            <p class="code-indent">syncLeaseCycle: <span class="code-keyword">true</span>,</p>
+                            <p class="code-indent">residentUI: <span class="code-keyword">"FULL_EMBED"</span></p>
+                            <p>});</p>
+                            <p style="margin-top: 16px;">valet.on(<span class="code-keyword">'service_request'</span>, (data) => {</p>
+                            <p class="code-indent"><span class="code-accent">syncWithLoadingDock</span>(data.timeSlot);</p>
+                            <p>});</p>
+                        </div>
+                    </div>
+                    <div class="portal-code-corner"></div>
                 </div>
             </div>
         </div>
