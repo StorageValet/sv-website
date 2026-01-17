@@ -187,16 +187,15 @@
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-label">How It Works</span>
-                <h2>A straightforward experience</h2>
-                <p>From first pickup to every return.</p>
+                <h2>A seamless experience in 3 steps</h2>
+                <p>From first pickup to every return—designed around your schedule.</p>
             </div>
             <div class="steps-grid">
                 <div class="step reveal reveal-delay-1">
-                    <div class="step-circle-container">
+                    <div class="step-circle-container" role="button" tabindex="0" aria-label="Learn more about creating your inventory">
                         <div class="step-circle-flipper">
-                            <div class="step-circle-front">1</div>
-                            <div class="step-circle-back">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            <div class="step-circle-front">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
                                     <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
                                     <path d="M9 14h6"></path>
@@ -204,45 +203,53 @@
                                     <path d="M9 10h6"></path>
                                 </svg>
                             </div>
+                            <div class="step-circle-back">
+                                <span class="step-value-text">Your items, your way—add photos and details on your schedule.</span>
+                            </div>
                         </div>
                     </div>
-                    <h3>Create your account and add your items.</h3>
-                    <p>Create an inventory. Use your secure portal to add items and photos.</p>
+                    <h3>Build your inventory</h3>
+                    <p>Create an account and catalog your items with photos in the secure portal.</p>
                 </div>
                 <div class="step reveal reveal-delay-2">
-                    <div class="step-circle-container">
+                    <div class="step-circle-container" role="button" tabindex="0" aria-label="Learn more about pickup service">
                         <div class="step-circle-flipper">
-                            <div class="step-circle-front">2</div>
-                            <div class="step-circle-back">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            <div class="step-circle-front">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <rect x="1" y="3" width="15" height="13"></rect>
                                     <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
                                     <circle cx="5.5" cy="18.5" r="2.5"></circle>
                                     <circle cx="18.5" cy="18.5" r="2.5"></circle>
                                 </svg>
                             </div>
+                            <div class="step-circle-back">
+                                <span class="step-value-text">No heavy lifting. We come to your door and handle everything.</span>
+                            </div>
                         </div>
                     </div>
-                    <h3>We pick up and store everything securely.</h3>
-                    <p>Our team arrives at your building and scans your inventory.</p>
+                    <h3>We pick up & store</h3>
+                    <p>Our team arrives at your building, collects your items, and stores them securely.</p>
                 </div>
                 <div class="step reveal reveal-delay-3">
-                    <div class="step-circle-container">
+                    <div class="step-circle-container" role="button" tabindex="0" aria-label="Learn more about delivery service">
                         <div class="step-circle-flipper">
-                            <div class="step-circle-front">3</div>
-                            <div class="step-circle-back">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            <div class="step-circle-front">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
                                     <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
                                     <line x1="12" y1="22.08" x2="12" y2="12"></line>
                                 </svg>
                             </div>
+                            <div class="step-circle-back">
+                                <span class="step-value-text">48-hour delivery. Request any item back through the portal, anytime.</span>
+                            </div>
                         </div>
                     </div>
-                    <h3>Get items back as needed.</h3>
-                    <p>Request returns or send additional items through the portal to keep your home comfortable, organized, and clutter-free.</p>
+                    <h3>Get items back</h3>
+                    <p>Request returns through the portal—delivered to your door within 48 hours.</p>
                 </div>
             </div>
+            <p class="steps-hint">Hover or tap the icons to learn more</p>
         </div>
     </section>
 
@@ -857,25 +864,28 @@
             }
         });
 
-        // Auto-flip step circles when section comes into view (mobile enhancement)
+        // Flip cards: tap-to-toggle on touch devices, hover on desktop
         const stepCircles = document.querySelectorAll('.step-circle-container');
-        if (stepCircles.length > 0 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            const stepObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // Stagger the flip animation with natural timing
-                        stepCircles.forEach((circle, index) => {
-                            setTimeout(() => {
-                                circle.classList.add('flipped');
-                            }, 150 + (index * 250)); // Initial 150ms delay, then 250ms between each
-                        });
-                        stepObserver.disconnect(); // Only trigger once
+        const isTouchDevice = window.matchMedia('(hover: none)').matches;
+
+        if (stepCircles.length > 0) {
+            stepCircles.forEach(circle => {
+                // Tap to toggle on touch devices
+                circle.addEventListener('click', (e) => {
+                    if (isTouchDevice) {
+                        e.preventDefault();
+                        circle.classList.toggle('flipped');
                     }
                 });
-            }, { threshold: 0.25, rootMargin: '0px 0px -30px 0px' });
 
-            // Observe the first step circle
-            stepObserver.observe(stepCircles[0]);
+                // Keyboard accessibility: Enter/Space to toggle
+                circle.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        circle.classList.toggle('flipped');
+                    }
+                });
+            });
         }
 
         // FAQ accordion
