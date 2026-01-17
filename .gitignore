@@ -6,3 +6,4 @@ lighthouse-*.json
 lighthouse-*.html
 lighthouse-*.report.*
 node_modules/
+qa-artifacts/
